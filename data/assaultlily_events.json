@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
-    "last_updated": "2026-07-02T23:45:55+09:00",
+    "last_updated": "2026-07-03T00:56:12+09:00",
     "sources": [
       {
         "key": "assaultlily-pj",
@@ -30,7 +30,7 @@
       }
     ],
     "schema_version": "1.0",
-    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-02に接続確認・取得成功）。"
+    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。"
   },
   "events": [
     {
@@ -79,7 +79,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "upcoming"
     },
     {
@@ -173,7 +173,7 @@
           "note": "一般は6/29(月)21:00〜"
         }
       ],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "upcoming"
     },
     {
@@ -303,7 +303,7 @@
           "note": "税込"
         }
       ],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "upcoming"
     },
     {
@@ -357,7 +357,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "upcoming"
     },
     {
@@ -385,7 +385,7 @@
           "note": "チケットは後日解禁（未定）"
         }
       ],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "tbd"
     },
     {
@@ -402,7 +402,7 @@
       "cast": [],
       "description": "原案：尾花沢軒栄（acus） 脚本・演出：桜木さやか（ルドビコ★） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。",
       "tickets": [],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "tbd"
     },
     {
@@ -419,7 +419,7 @@
       "cast": [],
       "description": "原作：尾花沢軒栄（acus） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。assaultlily-pj.com 2026.05.30ニュースにて上演決定告知。",
       "tickets": [],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "tbd"
     },
     {
@@ -436,11 +436,35 @@
       "cast": [],
       "description": "ラスバレ5周年記念ライブイベント（開催済み）。",
       "tickets": [],
-      "last_seen": "2026-07-02",
+      "last_seen": "2026-07-03",
       "status": "past"
     }
   ],
   "news": [
+    {
+      "id": "pius-20260630-01",
+      "source_site": "pius",
+      "title": "配信チケット【7/4ピウスFCイベント vol.2】",
+      "url": "https://pius2010.co.jp/contents/404374",
+      "category": "FC EVENT",
+      "published_at": "2026-06-30"
+    },
+    {
+      "id": "pius-20260627-01",
+      "source_site": "pius",
+      "title": "舞台「アサルトリリィ・シュツルム」御台場女学校編【劇場・音楽堂等における子供舞台芸術鑑賞体験支援事業】",
+      "url": "https://pius2010.co.jp/contents/402687",
+      "category": "STAGE & EVENT",
+      "published_at": "2026-06-27"
+    },
+    {
+      "id": "pius-20260626-01",
+      "source_site": "pius",
+      "title": "7/4(土)ピウスFCイベントvol.2 チェキ事前販売について",
+      "url": "https://pius2010.co.jp/contents/402597",
+      "category": "FC EVENT",
+      "published_at": "2026-06-26"
+    },
     {
       "id": "com-20260415-02",
       "source_site": "assaultlily-com",
