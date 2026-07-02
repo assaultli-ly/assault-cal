@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アサルトリリィ イベントカレンダー</title>
+<style>
+  :root{
+    --bg:#120a10;
+    --panel:#1c1017;
+    --panel2:#241521;
+    --border:#3a2230;
+    --text:#f3e9ee;
+    --muted:#b79aa8;
+    --accent:#e0447a;
+    --accent2:#d4af6a;
+    --stage:#e0447a;
+    --ticket-open:#4ea8de;
+    --ticket-close:#8a6fd6;
+    --news:#6fbf8a;
+    --tbd:#7a6a72;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,system-ui,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -10%, #2a1420 0%, var(--bg) 60%);
+    color:var(--text);
+    min-height:100vh;
+  }
+  header{
+    padding:28px 20px 12px;
+    text-align:center;
+  }
+  header h1{
+    margin:0 0 4px;
+    font-size:1.6rem;
+    letter-spacing:.04em;
+    background:linear-gradient(90deg, var(--accent2), var(--accent));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  header p{
+    margin:0;
+    color:var(--muted);
+    font-size:.85rem;
+  }
+  .wrap{
+    max-width:1000px;
+    margin:0 auto;
+    padding:10px 16px 60px;
+  }
+  .toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:18px 0 10px;
+  }
+  .month-nav{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .month-nav button{
+    background:var(--panel2);
+    border:1px solid var(--border);
+    color:var(--text);
+    border-radius:8px;
+    width:34px;height:34px;
+    cursor:pointer;
+    font-size:1rem;
+  }
+  .month-nav button:hover{background:var(--accent);border-color:var(--accent);}
+  .month-label{
+    font-size:1.15rem;
+    font-weight:600;
+    min-width:120px;
+    text-align:center;
+  }
+  .filters{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    border:1px solid var(--border);
+    background:var(--panel);
+    color:var(--muted);
+    padding:5px 11px;
+    border-radius:999px;
+    font-size:.75rem;
+    cursor:pointer;
+    user-select:none;
+    transition:.15s;
+  }
+  .chip.active{
+    color:#fff;
+    border-color:transparent;
+  }
+  .chip[data-type="stage"].active{background:var(--stage);}
+  .chip[data-type="event"].active{background:#c9578a;}
+  .chip[data-type="fc_event"].active{background:#b073c9;}
+  .chip[data-type="live_event"].active{background:#c96b57;}
+  .chip[data-type="game_event"].active{background:#5aa6c9;}
+
+  .calendar{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .weekdays, .days{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+  }
+  .weekdays div{
+    text-align:center;
+    padding:8px 0;
+    font-size:.72rem;
+    color:var(--muted);
+    border-bottom:1px solid var(--border);
+  }
+  .day{
+    min-height:88px;
+    min-width:0;
+    overflow:hidden;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:6px;
+    position:relative;
+    cursor:pointer;
+    transition:background .15s;
+  }
+  .day:hover{background:var(--panel2);}
+  .day.other-month{opacity:.28;}
+  .day.today{outline:2px solid var(--accent2); outline-offset:-2px;}
+  .day .num{font-size:.78rem;color:var(--muted);}
+  .day.today .num{color:var(--accent2); font-weight:700;}
+  .markers{
+    display:flex;
+    flex-wrap:wrap;
+    gap:3px;
+    margin-top:5px;
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--stage);
+  }
+  .dot.ticket-open{background:var(--ticket-open);}
+  .dot.ticket-close{background:var(--ticket-close);}
+  .day-titles{
+    margin-top:3px;
+    font-size:.62rem;
+    line-height:1.25;
+    color:var(--text);
+  }
+  .day-titles .t{
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+
+  .legend{
+    display:flex;gap:16px;flex-wrap:wrap;
+    margin:14px 2px;font-size:.72rem;color:var(--muted);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:5px;}
+  .legend .dot{position:relative;top:0;}
+
+  .section-title{
+    margin:34px 0 10px;
+    font-size:1rem;
+    color:var(--accent2);
+    border-left:3px solid var(--accent);
+    padding-left:10px;
+  }
+  .news-list{list-style:none;margin:0;padding:0;}
+  .news-list li{
+    padding:10px 12px;
+    border-bottom:1px solid var(--border);
+    display:flex;gap:10px;font-size:.85rem;
+  }
+  .news-list li:last-child{border-bottom:none;}
+  .news-list .date{color:var(--muted);white-space:nowrap;font-size:.78rem;}
+  .news-list a{color:var(--text);text-decoration:none;}
+  .news-list a:hover{color:var(--accent2);}
+
+  footer{
+    text-align:center;color:var(--muted);font-size:.72rem;margin-top:40px;
+  }
+  footer a{color:var(--muted);}
+
+  /* modal */
+  .overlay{
+    position:fixed;inset:0;background:rgba(10,4,7,.72);
+    display:none;align-items:center;justify-content:center;
+    padding:20px;z-index:50;
+  }
+  .overlay.show{display:flex;}
+  .modal{
+    background:var(--panel);border:1px solid var(--border);
+    border-radius:14px;max-width:560px;width:100%;
+    max-height:85vh;overflow-y:auto;padding:22px;
+  }
+  .modal h2{margin:0 0 4px;font-size:1.15rem;color:var(--text);}
+  .modal .meta-row{font-size:.8rem;color:var(--muted);margin-bottom:4px;}
+  .modal .badge{
+    display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:999px;
+    background:var(--accent);color:#fff;margin-bottom:10px;
+  }
+  .modal h3{font-size:.85rem;color:var(--accent2);margin:16px 0 6px;}
+  .modal p{font-size:.85rem;line-height:1.6;color:var(--text);margin:4px 0;}
+  .perf-list, .ticket-list{list-style:none;margin:0;padding:0;font-size:.82rem;}
+  .perf-list li, .ticket-list li{
+    padding:7px 0;border-bottom:1px dashed var(--border);
+  }
+  .ticket-list li .phase{font-weight:600;}
+  .ticket-list li .method{
+    font-size:.68rem;padding:1px 7px;border-radius:999px;margin-left:6px;
+    background:var(--panel2);color:var(--muted);
+  }
+  .ticket-list li .range{color:var(--ticket-open);font-size:.78rem;}
+  .ticket-list li .note{color:var(--muted);font-size:.76rem;}
+  .cast{font-size:.78rem;color:var(--muted);line-height:1.7;}
+  .modal a.link{color:var(--accent2);}
+  .close-btn{
+    float:right;background:none;border:none;color:var(--muted);
+    font-size:1.3rem;cursor:pointer;line-height:1;
+  }
+  .day-panel-list{list-style:none;margin:0;padding:0;}
+  .day-panel-list li{padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer;font-size:.85rem;}
+  .day-panel-list li:hover{color:var(--accent2);}
+  .day-panel-list .kindtag{
+    font-size:.66rem;color:var(--muted);margin-right:6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>アサルトリリィ イベントカレンダー</h1>
+  <p>公式サイト巡回データより自動生成 / 舞台公演・チケット販売スケジュール</p>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <div class="month-nav">
+      <button id="prevBtn">&#8249;</button>
+      <div class="month-label" id="monthLabel">-</div>
+      <button id="nextBtn">&#8250;</button>
+    </div>
+    <div class="filters" id="filters"></div>
+  </div>
+
+  <div class="calendar">
+    <div class="weekdays">
+      <div>日</div><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div>土</div>
+    </div>
+    <div class="days" id="days"></div>
+  </div>
+
+  <div class="legend">
+    <span><span class="dot"></span>公演・イベント当日</span>
+    <span><span class="dot ticket-open"></span>チケット販売/受付 開始</span>
+    <span><span class="dot ticket-close"></span>チケット販売/受付 締切・当落発表</span>
+  </div>
+
+  <div class="section-title">最新ニュース</div>
+  <ul class="news-list" id="newsList"></ul>
+
+  <footer id="footerInfo"></footer>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<script>
+const DATA_URL = "data/assaultlily_events.json";
+let DATA = null;
+let current = new Date();
+let activeTypes = new Set();
+const TYPE_LABELS = {
+  stage: "舞台",
+  event: "イベント",
+  fc_event: "FCイベント",
+  live_event: "ライブ",
+  game_event: "ゲーム内イベント"
+};
+
+function pad(n){return String(n).padStart(2,"0");}
+function toKey(y,m,d){return `${y}-${pad(m+1)}-${pad(d)}`;}
+
+function fmtDateTime(iso){
+  if(!iso) return null;
+  const d = new Date(iso);
+  const w = ["日","月","火","水","木","金","土"][d.getDay()];
+  return `${d.getFullYear()}/${pad(d.getMonth()+1)}/${pad(d.getDate())}(${w}) ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+function fmtDate(str){
+  if(!str) return null;
+  const [y,m,d] = str.split("-").map(Number);
+  const dt = new Date(y, m-1, d);
+  const w = ["日","月","火","水","木","金","土"][dt.getDay()];
+  return `${y}/${pad(m)}/${pad(d)}(${w})`;
+}
+
+function buildCalendarIndex(){
+  const index = {}; // date(YYYY-MM-DD) -> [{kind, event, ticket?}]
+  function push(dateStr, item){
+    if(!dateStr) return;
+    if(!index[dateStr]) index[dateStr]=[];
+    index[dateStr].push(item);
+  }
+  for(const ev of DATA.events){
+    if(!activeTypes.has(ev.type)) continue;
+    if(ev.performances && ev.performances.length){
+      for(const p of ev.performances){
+        push(p.date, {kind:"performance", event:ev, time:p.time, note:p.note});
+      }
+    } else if(ev.date_start){
+      push(ev.date_start, {kind:"performance", event:ev, time:null, note: ev.date_end && ev.date_end!==ev.date_start ? `〜${fmtDate(ev.date_end)}`:null});
+    }
+    for(const t of (ev.tickets||[])){
+      if(t.sales_start){
+        push(t.sales_start.slice(0,10), {kind:"ticket-open", event:ev, ticket:t});
+      }
+      if(t.sales_end){
+        push(t.sales_end.slice(0,10), {kind:"ticket-close", event:ev, ticket:t});
+      }
+    }
+  }
+  return index;
+}
+
+function render(){
+  const y = current.getFullYear(), m = current.getMonth();
+  document.getElementById("monthLabel").textContent = `${y}年 ${m+1}月`;
+  const idx = buildCalendarIndex();
+
+  const firstDow = new Date(y,m,1).getDay();
+  const daysInMonth = new Date(y,m+1,0).getDate();
+  const daysInPrevMonth = new Date(y,m,0).getDate();
+  const cells = [];
+  for(let i=firstDow-1;i>=0;i--) cells.push({d:daysInPrevMonth-i, other:true, y, m:m-1});
+  for(let d=1; d<=daysInMonth; d++) cells.push({d, other:false, y, m});
+  while(cells.length % 7 !== 0) cells.push({d: cells.length - (firstDow+daysInMonth) + 1, other:true, y, m:m+1});
+  while(cells.length < 42) { const nd = cells.length - (firstDow+daysInMonth) + 1; cells.push({d:nd, other:true, y, m:m+1}); }
+
+  const todayKey = toKey(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+  const container = document.getElementById("days");
+  container.innerHTML = "";
+  for(const c of cells){
+    const realDate = new Date(c.y, c.m, c.d);
+    const key = toKey(realDate.getFullYear(), realDate.getMonth(), realDate.getDate());
+    const div = document.createElement("div");
+    div.className = "day" + (c.other?" other-month":"") + (key===todayKey?" today":"");
+    const items = idx[key] || [];
+    let titlesHtml = "";
+    const uniqTitles = [...new Set(items.map(it=>it.event.title))].slice(0,2);
+    for(const t of uniqTitles){
+      titlesHtml += `<div class="t">${t}</div>`;
+    }
+    let dotsHtml = "";
+    const kinds = items.map(it=>it.kind);
+    const openCount = kinds.filter(k=>k==="performance").length;
+    const ticketOpenCount = kinds.filter(k=>k==="ticket-open").length;
+    const ticketCloseCount = kinds.filter(k=>k==="ticket-close").length;
+    for(let i=0;i<Math.min(openCount,4);i++) dotsHtml += `<span class="dot"></span>`;
+    for(let i=0;i<Math.min(ticketOpenCount,4);i++) dotsHtml += `<span class="dot ticket-open"></span>`;
+    for(let i=0;i<Math.min(ticketCloseCount,4);i++) dotsHtml += `<span class="dot ticket-close"></span>`;
+
+    div.innerHTML = `<div class="num">${realDate.getDate()}</div>
+      <div class="markers">${dotsHtml}</div>
+      <div class="day-titles">${titlesHtml}</div>`;
+    if(items.length){
+      div.addEventListener("click", ()=>openDayPanel(key, items));
+    }
+    container.appendChild(div);
+  }
+  renderNews();
+}
+
+function openDayPanel(key, items){
+  const overlay = document.getElementById("overlay");
+  const body = document.getElementById("modalBody");
+  let html = `<button class="close-btn" onclick="closeModal()">&times;</button>
+    <h2>${fmtDate(key)}</h2><ul class="day-panel-list">`;
+  const kindLabel = {"performance":"公演/イベント","ticket-open":"販売・受付開始","ticket-close":"販売・受付締切"};
+  items.forEach((it, i)=>{
+    let sub = it.time ? ` ${it.time}` : (it.ticket ? ` ${it.ticket.phase}` : "");
+    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${kindLabel[it.kind]}]</span>${it.event.title}${sub}</li>`;
+  });
+  html += "</ul>";
+  body.innerHTML = html;
+  overlay.classList.add("show");
+}
+
+function openEventModal(id){
+  const ev = DATA.events.find(e=>e.id===id);
+  if(!ev) return;
+  const overlay = document.getElementById("overlay");
+  const body = document.getElementById("modalBody");
+  let html = `<button class="close-btn" onclick="closeModal()">&times;</button>`;
+  html += `<span class="badge">${TYPE_LABELS[ev.type]||ev.type}</span>`;
+  html += `<h2>${ev.title}</h2>`;
+  if(ev.series) html += `<div class="meta-row">シリーズ: ${ev.series}</div>`;
+  if(ev.venue) html += `<div class="meta-row">会場: ${ev.venue}</div>`;
+  if(ev.date_start){
+    html += `<div class="meta-row">期間: ${fmtDate(ev.date_start)}${ev.date_end && ev.date_end!==ev.date_start ? " 〜 "+fmtDate(ev.date_end):""}</div>`;
+  }
+  html += `<div class="meta-row">状態: ${{upcoming:"開催予定",past:"開催終了",tbd:"詳細未定"}[ev.status]||ev.status}</div>`;
+  if(ev.description) html += `<p>${ev.description}</p>`;
+
+  if(ev.performances && ev.performances.length){
+    html += `<h3>公演スケジュール</h3><ul class="perf-list">`;
+    for(const p of ev.performances){
+      html += `<li>${fmtDate(p.date)} ${p.time||""} ${p.note?`<br><span class="cast">${p.note}</span>`:""}</li>`;
+    }
+    html += `</ul>`;
+  }
+
+  if(ev.tickets && ev.tickets.length){
+    html += `<h3>チケット・販売情報</h3><ul class="ticket-list">`;
+    for(const t of ev.tickets){
+      const range = [fmtDateTime(t.sales_start), fmtDateTime(t.sales_end)].filter(Boolean).join(" 〜 ");
+      html += `<li>
+        <span class="phase">${t.phase}</span>${t.method?`<span class="method">${t.method}</span>`:""}
+        ${range ? `<div class="range">${range}</div>` : ""}
+        ${t.price ? `<div class="note">価格: ${t.price}</div>` : ""}
+        ${t.note ? `<div class="note">${t.note}</div>` : ""}
+        ${t.url ? `<div><a class="link" href="${t.url}" target="_blank" rel="noopener">購入・詳細ページ &#8594;</a></div>` : ""}
+      </li>`;
+    }
+    html += `</ul>`;
+  }
+
+  if(ev.cast && ev.cast.length){
+    html += `<h3>出演者</h3><div class="cast">${ev.cast.join("　/　")}</div>`;
+  }
+
+  html += `<h3>情報元</h3><p><a class="link" href="${ev.source_url}" target="_blank" rel="noopener">${ev.source_url}</a>`;
+  if(ev.detail_url) html += `<br><a class="link" href="${ev.detail_url}" target="_blank" rel="noopener">${ev.detail_url}</a>`;
+  html += `</p>`;
+
+  body.innerHTML = html;
+  document.getElementById("overlay").classList.add("show");
+}
+
+function closeModal(){
+  document.getElementById("overlay").classList.remove("show");
+}
+
+function renderNews(){
+  const list = document.getElementById("newsList");
+  const items = [...DATA.news].sort((a,b)=> b.published_at.localeCompare(a.published_at)).slice(0,12);
+  list.innerHTML = items.map(n=>`<li><span class="date">${n.published_at}</span><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a></li>`).join("");
+}
+
+function renderFilters(){
+  const types = [...new Set(DATA.events.map(e=>e.type))];
+  activeTypes = new Set(types);
+  const el = document.getElementById("filters");
+  el.innerHTML = types.map(t=>`<div class="chip active" data-type="${t}">${TYPE_LABELS[t]||t}</div>`).join("");
+  el.querySelectorAll(".chip").forEach(chip=>{
+    chip.addEventListener("click", ()=>{
+      const t = chip.dataset.type;
+      if(activeTypes.has(t)){ activeTypes.delete(t); chip.classList.remove("active"); }
+      else { activeTypes.add(t); chip.classList.add("active"); }
+      render();
+    });
+  });
+}
+
+document.getElementById("overlay").addEventListener("click", (e)=>{
+  if(e.target.id==="overlay") closeModal();
+});
+document.getElementById("prevBtn").addEventListener("click", ()=>{ current.setMonth(current.getMonth()-1); render(); });
+document.getElementById("nextBtn").addEventListener("click", ()=>{ current.setMonth(current.getMonth()+1); render(); });
+
+fetch(DATA_URL).then(r=>r.json()).then(data=>{
+  DATA = data;
+  renderFilters();
+  render();
+  const src = data.meta.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join(" / ");
+  document.getElementById("footerInfo").innerHTML =
+    `最終更新: ${new Date(data.meta.last_updated).toLocaleString("ja-JP")}<br>情報元: ${src}`;
+}).catch(err=>{
+  document.getElementById("days").innerHTML = "<div style='padding:20px;color:#e88'>データの読み込みに失敗しました: "+err+"</div>";
+});
+</script>
+
+</body>
+</html>

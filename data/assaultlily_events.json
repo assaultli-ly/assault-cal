@@ -1,0 +1,549 @@
+{
+  "meta": {
+    "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
+    "last_updated": "2026-07-02T23:45:55+09:00",
+    "sources": [
+      {
+        "key": "assaultlily-pj",
+        "name": "アサルトリリィ プロジェクトポータルサイト",
+        "url": "https://assaultlily-pj.com"
+      },
+      {
+        "key": "assaultlily-com",
+        "name": "アサルトリリィ公式サイト（アクションドール）",
+        "url": "https://www.assaultlily.com"
+      },
+      {
+        "key": "assaultlily-lb",
+        "name": "アサルトリリィ Last Bullet ゲーム公式サイト",
+        "url": "https://assaultlily.jp"
+      },
+      {
+        "key": "assaultlily-stage",
+        "name": "舞台アサルトリリィ公式サイト",
+        "url": "https://assaultlily-stage.jp"
+      },
+      {
+        "key": "pius",
+        "name": "ピウスオフィシャルファンクラブ",
+        "url": "https://pius2010.co.jp"
+      }
+    ],
+    "schema_version": "1.0",
+    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-02に接続確認・取得成功）。"
+  },
+  "events": [
+    {
+      "id": "pius-112350",
+      "type": "fc_event",
+      "title": "舞台「アサルトリリィ× 私立ルドビコ女学院」新作 発表イベント",
+      "series": "アサルトリリィ× 私立ルドビコ女学院",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/112350",
+      "venue": "LOFT9 Shibuya",
+      "date_start": "2026-07-04",
+      "date_end": "2026-07-04",
+      "performances": [
+        {
+          "date": "2026-07-04",
+          "time": "13:00",
+          "note": "13:00〜14:40/14:45終演予定"
+        }
+      ],
+      "cast": [
+        "西本りみ",
+        "七海とろろ",
+        "梅原サエリ",
+        "小菅怜衣",
+        "桜木さやか",
+        "林修司（MC）"
+      ],
+      "description": "2027年1月8日〜12日にこくみん共済coopホール/スペース・ゼロにて行われる舞台「アサルトリリィ×私立ルドビコ女学院」の出演キャラクター・出演者情報などを発表するイベント。",
+      "tickets": [
+        {
+          "phase": "ピウスFC先行販売",
+          "method": "先着",
+          "sales_start": "2026-06-20T10:00:00+09:00",
+          "sales_end": "2026-06-21T23:59:00+09:00",
+          "price": null,
+          "url": "https://pius2010.co.jp/contents/400176",
+          "note": null
+        },
+        {
+          "phase": "一般販売",
+          "method": "先着",
+          "sales_start": "2026-06-24T18:00:00+09:00",
+          "sales_end": null,
+          "price": null,
+          "url": "https://livepocket.jp/e/bpccg",
+          "note": null
+        }
+      ],
+      "last_seen": "2026-07-02",
+      "status": "upcoming"
+    },
+    {
+      "id": "pius-111338",
+      "type": "fc_event",
+      "title": "ピウスFCイベント Vol.2",
+      "series": "舞台アサルトリリィ関連キャスト企画",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/111338",
+      "venue": "LOFT9 Shibuya",
+      "date_start": "2026-07-04",
+      "date_end": "2026-07-04",
+      "performances": [
+        {
+          "date": "2026-07-04",
+          "time": "18:00",
+          "note": "18:00〜20:30予定、チェキ撮影会含む"
+        }
+      ],
+      "cast": [
+        "石井陽菜",
+        "あわつまい",
+        "栞菜",
+        "柴田茉莉",
+        "小菅怜衣（MC）",
+        "林修司（MC）"
+      ],
+      "description": "ピウスFC第二弾イベント。配信あり（配信時間18:00〜約1時間半、配信チケット2500円）。",
+      "tickets": [
+        {
+          "phase": "ピウスFC先行販売",
+          "method": "先着",
+          "sales_start": "2026-06-20T11:00:00+09:00",
+          "sales_end": "2026-06-21T23:59:00+09:00",
+          "price": null,
+          "url": "https://pius2010.co.jp/contents/397236",
+          "note": "完売の場合は一般販売なし"
+        },
+        {
+          "phase": "一般販売",
+          "method": "先着",
+          "sales_start": "2026-06-24T19:00:00+09:00",
+          "sales_end": null,
+          "price": null,
+          "url": "https://livepocket.jp/e/iq02d",
+          "note": null
+        },
+        {
+          "phase": "当日券",
+          "method": null,
+          "sales_start": null,
+          "sales_end": null,
+          "price": "A席 6,000円",
+          "url": null,
+          "note": "17:00以降受付"
+        },
+        {
+          "phase": "配信チケット",
+          "method": null,
+          "sales_start": null,
+          "sales_end": null,
+          "price": "2,500円",
+          "url": "https://premier.twitcasting.tv/g:101752634308038918618/shopcart/442198",
+          "note": null
+        },
+        {
+          "phase": "ツーショットチェキ FC会員先行",
+          "method": "先着",
+          "sales_start": "2026-06-27T10:00:00+09:00",
+          "sales_end": null,
+          "price": "2,800円",
+          "url": "https://pius2010.co.jp/contents/402600",
+          "note": null
+        },
+        {
+          "phase": "ツーショットチェキ 一般",
+          "method": "先着",
+          "sales_start": "2026-06-29T21:00:00+09:00",
+          "sales_end": null,
+          "price": "2,800円",
+          "url": "https://livepocket.jp/e/piusfcvol2",
+          "note": null
+        },
+        {
+          "phase": "ソロチェキ（2枚組） FC会員先行/一般",
+          "method": "先着",
+          "sales_start": "2026-06-27T10:00:00+09:00",
+          "sales_end": null,
+          "price": "3,000円（税込・送料込）",
+          "url": "https://store.bitfan.id/pius-fc",
+          "note": "一般は6/29(月)21:00〜"
+        }
+      ],
+      "last_seen": "2026-07-02",
+      "status": "upcoming"
+    },
+    {
+      "id": "pius-97714",
+      "type": "stage",
+      "title": "舞台「アサルトリリィ・シュツルム」御台場女学校編",
+      "series": "アサルトリリィ・シュツルム",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/97714",
+      "detail_url": "https://assaultlily-stage.jp/2607stage/",
+      "venue": "シアター1010",
+      "date_start": "2026-07-16",
+      "date_end": "2026-07-21",
+      "performances": [
+        {
+          "date": "2026-07-16",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-07-18",
+          "time": "13:00"
+        },
+        {
+          "date": "2026-07-18",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-07-19",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-07-20",
+          "time": "13:00"
+        },
+        {
+          "date": "2026-07-20",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-07-21",
+          "time": "13:00"
+        }
+      ],
+      "cast": [
+        "石井陽菜（船田純役）",
+        "西葉瑞希（船田初役）",
+        "野元空（司馬燈役）",
+        "朝倉ふゆな（駒井菫役）",
+        "長谷川里桃（長沢雪役）",
+        "吉宮るり（井草昴役）",
+        "春咲暖（藤田槿役）",
+        "田崎礼奈（川端蛍役）",
+        "柴田茉莉（今村紫役）",
+        "有沢澪風（梢・ウェスト役）",
+        "矢野妃菜喜（月岡椛役）",
+        "あわつまい（川村楪役）",
+        "林田真尋（菱田治役）",
+        "北澤早紀（尾竹廉役）",
+        "星希成奏（西郷紅役）",
+        "河内美里（河鍋薺役）",
+        "橘里依（横山梓役）",
+        "今村美歩（円山周役）",
+        "栞菜（速水桂役）",
+        "斎藤愛莉（鈴木因役）",
+        "長月明日香（竹久央役）",
+        "中川梨花（伊藤麗役）",
+        "安藤千伽奈（上村蕨役）",
+        "舞川みやこ（アキラ・ブラントン役）",
+        "天麻ゆうき（アルテア・アレッサンドリーニ役）",
+        "本西彩希帆（明石愛華役）",
+        "宮崎理奈（ルサルカ役）"
+      ],
+      "description": "シュツルムシリーズ第3弾。御台場女学校を舞台に新たな戦いが描かれる。上演時間約2時間（休憩なし）。受付開始は開演60分前、客席開場は開演45分前。 （劇場・音楽堂等における子供舞台芸術鑑賞体験支援事業対象公演。ピウスFC会員は開演75分前より受付可能。）",
+      "tickets": [
+        {
+          "phase": "ピウスFC最速先行（クローズ限定販売）",
+          "method": "抽選",
+          "sales_start": "2026-05-09T10:00:00+09:00",
+          "sales_end": "2026-05-17T23:59:00+09:00",
+          "price": null,
+          "url": null,
+          "note": "当落発表: 2026-05-20（水）／入金期間: 当落発表〜2026-05-24（日）23:59"
+        },
+        {
+          "phase": "抽選先行（オープン）",
+          "method": "抽選",
+          "sales_start": "2026-05-25T10:00:00+09:00",
+          "sales_end": "2026-05-31T23:59:00+09:00",
+          "price": null,
+          "url": null,
+          "note": "当落発表: 2026-06-03（水）／入金期間: 当落発表〜2026-06-07（日）22:00"
+        },
+        {
+          "phase": "一般販売（オープン）",
+          "method": "先着",
+          "sales_start": "2026-06-13T10:00:00+09:00",
+          "sales_end": "2026-07-13T23:59:00+09:00",
+          "price": null,
+          "url": null,
+          "note": "最終入金締切: 2026-07-15（木）22:00／取扱: キョードーファクトリー"
+        },
+        {
+          "phase": "引換券（オープン）",
+          "method": "先着",
+          "sales_start": "2026-07-14T10:00:00+09:00",
+          "sales_end": null,
+          "price": null,
+          "url": null,
+          "note": null
+        },
+        {
+          "phase": "ライブ配信チケット",
+          "method": null,
+          "sales_start": null,
+          "sales_end": null,
+          "price": null,
+          "url": null,
+          "note": "販売開始日未公開（公開まで待機中）"
+        },
+        {
+          "phase": "全席指定",
+          "method": null,
+          "sales_start": null,
+          "sales_end": null,
+          "price": "S席（1階席）11,000円 / A席（2階席）8,800円",
+          "url": null,
+          "note": "税込"
+        }
+      ],
+      "last_seen": "2026-07-02",
+      "status": "upcoming"
+    },
+    {
+      "id": "pius-101608",
+      "type": "event",
+      "title": "舞台「アサルトリリィ」上映会",
+      "series": "アサルトリリィ（上映会イベント）",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/101608",
+      "detail_url": "https://assaultlily-stage.jp/2607event/",
+      "venue": "シアター1010",
+      "date_start": "2026-07-17",
+      "date_end": "2026-07-22",
+      "performances": [
+        {
+          "date": "2026-07-17",
+          "time": "19:00",
+          "note": "舞台「アサルトリリィ・シュツルム」サングリーズル編 第2弾"
+        },
+        {
+          "date": "2026-07-19",
+          "time": "13:00",
+          "note": "舞台「アサルトリリィ・イルマ女子美術高校」-The Bond with the White Rose-"
+        },
+        {
+          "date": "2026-07-21",
+          "time": "19:00",
+          "note": "舞台「アサルトリリィ」-眞說・御台場迎撃戦-"
+        },
+        {
+          "date": "2026-07-22",
+          "time": "12:00",
+          "note": "舞台アサルトリリィ・生演奏バンドライブ『Lily Scramble!!!!』-Blooming Chord-"
+        },
+        {
+          "date": "2026-07-22",
+          "time": "16:00",
+          "note": "舞台アサルトリリィ・生演奏バンドライブ『Lily Scramble!!!!』-Sparkling Note-"
+        }
+      ],
+      "cast": [],
+      "description": "過去の上映作品を各公演の出演キャストと一緒に楽しむ上映会イベント。上演時間約2時間15分（休憩なし）。舞台「アサルトリリィ・シュツルム」御台場女学校編と同時開催。",
+      "tickets": [
+        {
+          "phase": "FC先行チケット",
+          "method": null,
+          "sales_start": null,
+          "sales_end": null,
+          "price": null,
+          "url": "https://pius2010.co.jp/contents/384100",
+          "note": null
+        }
+      ],
+      "last_seen": "2026-07-02",
+      "status": "upcoming"
+    },
+    {
+      "id": "pius-97716",
+      "type": "stage",
+      "title": "異空間リーディングステージ「アサルトリリィ」第2弾公演",
+      "series": "異空間リーディングステージ「アサルトリリィ」",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/97716",
+      "detail_url": "https://assaultlily-stage.jp/cat_stage/580/",
+      "venue": "シアターサンモール",
+      "date_start": "2026-10-28",
+      "date_end": "2026-11-01",
+      "performances": [],
+      "cast": [],
+      "description": "台本を手にしつつ俳優が動き回り、プロジェクションマッピングを用いた映像演出でリアルとバーチャルを融合させる公演形式。公演スケジュール詳細は続報待ち。",
+      "tickets": [
+        {
+          "phase": "一般販売",
+          "method": null,
+          "sales_start": null,
+          "sales_end": null,
+          "price": null,
+          "url": "https://assaultlily-stage.jp/cat_stage/580/",
+          "note": "チケットは後日解禁（未定）"
+        }
+      ],
+      "last_seen": "2026-07-02",
+      "status": "tbd"
+    },
+    {
+      "id": "pius-112426",
+      "type": "stage",
+      "title": "舞台「アサルトリリィ× 私立ルドビコ女学院」",
+      "series": "アサルトリリィ× 私立ルドビコ女学院",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/112426",
+      "venue": "こくみん共済coopホール／スペース・ゼロ",
+      "date_start": "2027-01-08",
+      "date_end": "2027-01-12",
+      "performances": [],
+      "cast": [],
+      "description": "原案：尾花沢軒栄（acus） 脚本・演出：桜木さやか（ルドビコ★） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。",
+      "tickets": [],
+      "last_seen": "2026-07-02",
+      "status": "tbd"
+    },
+    {
+      "id": "pius-112428",
+      "type": "stage",
+      "title": "舞台「エレンスゲ女学園（仮）」",
+      "series": "エレンスゲ女学園",
+      "source_site": "pius",
+      "source_url": "https://pius2010.co.jp/schedules/112428",
+      "venue": "こくみん共済coopホール／スペース・ゼロ（東京・新宿）",
+      "date_start": "2027-01-15",
+      "date_end": "2027-01-17",
+      "performances": [],
+      "cast": [],
+      "description": "原作：尾花沢軒栄（acus） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。assaultlily-pj.com 2026.05.30ニュースにて上演決定告知。",
+      "tickets": [],
+      "last_seen": "2026-07-02",
+      "status": "tbd"
+    },
+    {
+      "id": "pj-event-2026-02-01",
+      "type": "live_event",
+      "title": "アサルトリリィ Last Bullet 5th Anniv. Thanks Stage 〜With Lilie…〜",
+      "series": "アサルトリリィ Last Bullet",
+      "source_site": "assaultlily-pj",
+      "source_url": "https://assaultlily-pj.com/news/2025/1001/1-2",
+      "venue": "CITY HALL & GALLERY GOTANDA（東京）",
+      "date_start": "2026-02-01",
+      "date_end": "2026-02-01",
+      "performances": [],
+      "cast": [],
+      "description": "ラスバレ5周年記念ライブイベント（開催済み）。",
+      "tickets": [],
+      "last_seen": "2026-07-02",
+      "status": "past"
+    }
+  ],
+  "news": [
+    {
+      "id": "com-20260415-02",
+      "source_site": "assaultlily-com",
+      "title": "『舞台「アサルトリリィ・シュツルム」サングリーズル編 第2弾』アゾン物販情報のお知らせ",
+      "url": "https://www.assaultlily.com/",
+      "category": "goods",
+      "published_at": "2026-04-15"
+    },
+    {
+      "id": "com-20260415-01",
+      "source_site": "assaultlily-com",
+      "title": "『舞台「アサルトリリィ・シュツルム」サングリーズル編 第2弾』acusショップ新商品情報",
+      "url": "https://www.assaultlily.com/",
+      "category": "goods",
+      "published_at": "2026-04-15"
+    },
+    {
+      "id": "stage-20260612-01",
+      "source_site": "assaultlily-stage",
+      "title": "「アサルトリリィ・シュツルム」御台場女学校編 事前学習イベント",
+      "url": "https://assaultlily-stage.jp/",
+      "category": "イベント",
+      "published_at": "2026-06-12"
+    },
+    {
+      "id": "stage-20260614-02",
+      "source_site": "assaultlily-stage",
+      "title": "舞台「アサルトリリィ× 私立ルドビコ女学院」新作上演決定！！！",
+      "url": "https://assaultlily-stage.jp/",
+      "category": "舞台",
+      "published_at": "2026-06-14"
+    },
+    {
+      "id": "stage-20260614-01",
+      "source_site": "assaultlily-stage",
+      "title": "舞台「アサルトリリィ× 私立ルドビコ女学院」新作 発表イベント",
+      "url": "https://assaultlily-stage.jp/",
+      "category": "イベント",
+      "published_at": "2026-06-14"
+    },
+    {
+      "id": "stage-20260619-01",
+      "source_site": "assaultlily-stage",
+      "title": "舞台「アサルトリリィ・シュツルム」〜御台場女学校編〜【X】フォロー&リポスト キャンペーン",
+      "url": "https://assaultlily-stage.jp/",
+      "category": "その他",
+      "published_at": "2026-06-19"
+    },
+    {
+      "id": "stage-20260627-01",
+      "source_site": "assaultlily-stage",
+      "title": "舞台「アサルトリリィ・シュツルム」〜御台場女学校編〜を劇場・音楽堂等における子供…",
+      "url": "https://assaultlily-stage.jp/",
+      "category": "舞台",
+      "published_at": "2026-06-27"
+    },
+    {
+      "id": "pj-20260629-01",
+      "source_site": "assaultlily-pj",
+      "title": "『ふじの食堂コラボカフェ』第二弾 開催決定！【6/29 21:30更新】",
+      "url": "https://assaultlily-pj.com/news/2026/0629/",
+      "category": "info",
+      "published_at": "2026-06-29"
+    },
+    {
+      "id": "pj-20260601-01",
+      "source_site": "assaultlily-pj",
+      "title": "「アサルトリリィ」遊技機化プロジェクト始動！",
+      "url": "https://assaultlily-pj.com/news/2026/0601/354/",
+      "category": "info",
+      "published_at": "2026-06-01"
+    },
+    {
+      "id": "pj-20260530-01",
+      "source_site": "assaultlily-pj",
+      "title": "2027年1月 舞台「エレンスゲ女学園（仮）」 上演決定！【5/30 21:00更新】",
+      "url": "https://assaultlily-pj.com/news/2026/0201/01/",
+      "category": "event",
+      "published_at": "2026-05-30"
+    },
+    {
+      "id": "pj-20260529-01",
+      "source_site": "assaultlily-pj",
+      "title": "TVアニメ「アサルトリリィ BOUQUET」好評配信中！",
+      "url": "https://assaultlily-pj.com/news/2026/0529/355/",
+      "category": "info",
+      "published_at": "2026-05-29"
+    },
+    {
+      "id": "lb-20260629-01",
+      "source_site": "assaultlily-lb",
+      "title": "6月29日(月)「ラスバレ放送局 #125」の公開情報まとめ！！新イベント「Shall we dance？」が開催！",
+      "url": "https://assaultlily.jp/news/info/10535/",
+      "category": "info",
+      "published_at": "2026-06-29"
+    },
+    {
+      "id": "lb-20260530-01",
+      "source_site": "assaultlily-lb",
+      "title": "5月30日(土)「ラスバレ放送局 #124」の公開情報まとめ！！新イベント「壇上ブライダル」が開催！",
+      "url": "https://assaultlily.jp/news/info/10336/",
+      "category": "info",
+      "published_at": "2026-05-30"
+    }
+  ]
+}
