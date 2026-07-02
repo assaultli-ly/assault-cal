@@ -324,10 +324,10 @@ function buildCalendarIndex(){
     }
     for(const t of (ev.tickets||[])){
       if(t.sales_start){
-        push(t.sales_start.slice(0,10), {kind:"ticket-open", event:ev, ticket:t});
+        push(t.sales_start.slice(0,10), {kind:"ticket-open", event:ev, ticket:t, time:t.sales_start.slice(11,16)});
       }
       if(t.sales_end){
-        push(t.sales_end.slice(0,10), {kind:"ticket-close", event:ev, ticket:t});
+        push(t.sales_end.slice(0,10), {kind:"ticket-close", event:ev, ticket:t, time:t.sales_end.slice(11,16)});
       }
     }
   }
@@ -388,9 +388,12 @@ function openDayPanel(key, items){
   let html = `<button class="close-btn" onclick="closeModal()">&times;</button>
     <h2>${fmtDate(key)}</h2><ul class="day-panel-list">`;
   const kindLabel = {"performance":"公演/イベント","ticket-open":"販売・受付開始","ticket-close":"販売・受付締切"};
-  items.forEach((it, i)=>{
-    let sub = it.time ? ` ${it.time}` : (it.ticket ? ` ${it.ticket.phase}` : "");
-    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${kindLabel[it.kind]}]</span>${it.event.title}${sub}</li>`;
+  // Sort by time so the panel reads top-to-bottom chronologically within the day
+  const sorted = [...items].sort((a,b)=> (a.time||"").localeCompare(b.time||""));
+  sorted.forEach((it)=>{
+    const timePart = it.time ? ` ${it.time}` : "";
+    const phasePart = it.ticket ? `　${it.ticket.phase}` : "";
+    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${kindLabel[it.kind]}${timePart}]</span>${it.event.title}${phasePart}</li>`;
   });
   html += "</ul>";
   body.innerHTML = html;
