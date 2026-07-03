@@ -475,9 +475,63 @@
       ],
       "last_seen": "2026-07-03",
       "status": "upcoming"
+    },
+    {
+      "id": "lb-broadcast-20260719",
+      "type": "game_event",
+      "title": "ラスバレ5.5周年記念 スペシャル生放送",
+      "series": "アサルトリリィ Last Bullet",
+      "source_site": "assaultlily-lb",
+      "source_url": "https://assaultlily.jp/news/info/10535/",
+      "venue": null,
+      "date_start": "2026-07-19",
+      "date_end": "2026-07-19",
+      "performances": [
+        {
+          "date": "2026-07-19",
+          "time": "20:00",
+          "note": "5.5周年記念スペシャル生放送。ゲストはラスバレ公式Xで発表予定。"
+        }
+      ],
+      "cast": [],
+      "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。5.5周年を記念したスペシャル生放送。",
+      "tickets": [],
+      "last_seen": "2026-07-03",
+      "status": "upcoming"
+    },
+    {
+      "id": "lb-broadcast-20260711",
+      "type": "game_event",
+      "title": "レギオンチャンピオンシップ 決勝戦 リアルタイム公式配信",
+      "series": "アサルトリリィ Last Bullet",
+      "source_site": "assaultlily-lb",
+      "source_url": "https://assaultlily.jp/news/info/10535/",
+      "venue": null,
+      "date_start": "2026-07-11",
+      "date_end": "2026-07-11",
+      "performances": [
+        {
+          "date": "2026-07-11",
+          "time": "22:00",
+          "note": "レギオンチャンピオンシップ決勝戦のリアルタイム公式配信。"
+        }
+      ],
+      "cast": [],
+      "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。",
+      "tickets": [],
+      "last_seen": "2026-07-03",
+      "status": "upcoming"
     }
   ],
   "news": [
+    {
+      "id": "lb-20260629-02",
+      "source_site": "assaultlily-lb",
+      "title": "ふじの食堂コラボカフェ第二弾グッズの事後通販が決定（開催日時は続報待ち）",
+      "url": "https://assaultlily.jp/news/info/10535/",
+      "category": "info",
+      "published_at": "2026-06-29"
+    },
     {
       "id": "pius-20260630-01",
       "source_site": "pius",
