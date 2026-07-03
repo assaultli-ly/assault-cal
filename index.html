@@ -295,6 +295,7 @@
     <span><span class="dot ticket-open"></span>チケット販売/受付 開始</span>
     <span><span class="dot ticket-close"></span>チケット販売/受付 締切・当落発表</span>
     <span><span style="display:inline-block;width:16px;height:8px;border-radius:3px;background:var(--accent2);"></span>POP UP SHOP等の開催期間（帯表示）</span>
+    <span><span style="display:inline-block;width:16px;height:8px;border-radius:3px;background:var(--ticket-open);"></span>チケット販売/抽選申込 受付期間（帯表示、初日開始・最終日締切の時刻つき）</span>
   </div>
 
   <div class="section-title">最新ニュース</div>
@@ -353,8 +354,45 @@ function isRangeEvent(ev){
   const hasPerf = ev.performances && ev.performances.length;
   return !hasPerf && ev.date_start && ev.date_end && ev.date_end !== ev.date_start;
 }
-function getRangeEvents(){
-  return DATA.events.filter(ev => activeTypes.has(ev.type) && isRangeEvent(ev));
+// A ticket phase spanning multiple days (e.g. a lottery application window) is
+// also shown as a connected bar rather than two separate open/close dots.
+function isRangeTicket(t){
+  if(!t.sales_start || !t.sales_end) return false;
+  return t.sales_start.slice(0,10) !== t.sales_end.slice(0,10);
+}
+
+// Unified list of everything rendered as a connected multi-day bar: both
+// whole events (POP UP SHOP etc.) and individual ticket sale/application windows.
+function getBarItems(){
+  const items = [];
+  for(const ev of DATA.events){
+    if(!activeTypes.has(ev.type)) continue;
+    if(isRangeEvent(ev)){
+      items.push({
+        id: "ev-"+ev.id,
+        eventId: ev.id,
+        dateStart: ev.date_start,
+        dateEnd: ev.date_end,
+        color: TYPE_COLORS[ev.type] || "#888",
+        labelStart: ev.title,
+        labelEnd: ""
+      });
+    }
+    (ev.tickets||[]).forEach((t, ti) => {
+      if(isRangeTicket(t)){
+        items.push({
+          id: "tk-"+ev.id+"-"+ti,
+          eventId: ev.id,
+          dateStart: t.sales_start.slice(0,10),
+          dateEnd: t.sales_end.slice(0,10),
+          color: "var(--ticket-open)",
+          labelStart: `${t.phase} ${t.sales_start.slice(11,16)}〜`,
+          labelEnd: `〜${t.sales_end.slice(11,16)}`
+        });
+      }
+    });
+  }
+  return items;
 }
 
 function buildCalendarIndex(){
@@ -375,6 +413,7 @@ function buildCalendarIndex(){
     }
     // isRangeEvent(ev) items are intentionally not pushed here - they're rendered as bars in render()
     for(const t of (ev.tickets||[])){
+      if(isRangeTicket(t)) continue; // shown as a connected bar instead of open/close dots
       if(t.sales_start){
         push(t.sales_start.slice(0,10), {kind:"ticket-open", event:ev, ticket:t, time:t.sales_start.slice(11,16)});
       }
@@ -402,17 +441,17 @@ function render(){
 
   const todayKey = toKey(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
   const cellKeys = cells.map(c=>{ const d=new Date(c.y,c.m,c.d); return toKey(d.getFullYear(),d.getMonth(),d.getDate()); });
-  const rangeEvents = getRangeEvents();
+  const barItems = getBarItems();
 
-  // Assign a vertical "lane" to each range event, per week row, so bars for the
-  // same event line up across consecutive days and read as one connected bar.
+  // Assign a vertical "lane" to each bar item, per week row, so bars for the
+  // same event/ticket window line up across consecutive days and read as one connected bar.
   const laneMaps = [], maxLanes = [];
   for(let w=0; w<cellKeys.length; w+=7){
     const weekKeys = cellKeys.slice(w, w+7);
-    const active = rangeEvents.filter(ev => weekKeys.some(k => k>=ev.date_start && k<=ev.date_end));
-    active.sort((a,b)=> a.date_start.localeCompare(b.date_start) || a.id.localeCompare(b.id));
+    const active = barItems.filter(it => weekKeys.some(k => k>=it.dateStart && k<=it.dateEnd));
+    active.sort((a,b)=> a.dateStart.localeCompare(b.dateStart) || a.id.localeCompare(b.id));
     const laneMap = {};
-    active.forEach((ev,i)=>{ laneMap[ev.id]=i; });
+    active.forEach((it,i)=>{ laneMap[it.id]=i; });
     laneMaps.push(laneMap);
     maxLanes.push(active.length);
   }
@@ -443,18 +482,17 @@ function render(){
     const maxLane = maxLanes[weekIndex];
     let barsHtml = "";
     if(maxLane > 0){
-      const activeToday = rangeEvents.filter(ev => key>=ev.date_start && key<=ev.date_end);
+      const activeToday = barItems.filter(it => key>=it.dateStart && key<=it.dateEnd);
       for(let lane=0; lane<maxLane; lane++){
-        const ev = activeToday.find(e => laneMap[e.id]===lane);
-        if(ev){
-          const isStart = key===ev.date_start;
-          const isEnd = key===ev.date_end;
+        const it = activeToday.find(x => laneMap[x.id]===lane);
+        if(it){
+          const isStart = key===it.dateStart;
+          const isEnd = key===it.dateEnd;
           const cls = ["range-bar"];
           if(isStart) cls.push("range-start");
           if(isEnd) cls.push("range-end");
-          const color = TYPE_COLORS[ev.type] || "#888";
-          const label = isStart ? ev.title : "";
-          barsHtml += `<div class="${cls.join(' ')}" style="background:${color}" onclick="event.stopPropagation();openEventModal('${ev.id}')">${label}</div>`;
+          const label = isStart ? it.labelStart : (isEnd ? it.labelEnd : "");
+          barsHtml += `<div class="${cls.join(' ')}" style="background:${it.color}" onclick="event.stopPropagation();openEventModal('${it.eventId}')">${label}</div>`;
         } else {
           barsHtml += `<div class="range-bar range-empty"></div>`;
         }
