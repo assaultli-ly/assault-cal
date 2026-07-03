@@ -478,7 +478,7 @@
     },
     {
       "id": "lb-broadcast-20260719",
-      "type": "game_event",
+      "type": "broadcast",
       "title": "ラスバレ5.5周年記念 スペシャル生放送",
       "series": "アサルトリリィ Last Bullet",
       "source_site": "assaultlily-lb",
@@ -501,7 +501,7 @@
     },
     {
       "id": "lb-broadcast-20260711",
-      "type": "game_event",
+      "type": "broadcast",
       "title": "レギオンチャンピオンシップ 決勝戦 リアルタイム公式配信",
       "series": "アサルトリリィ Last Bullet",
       "source_site": "assaultlily-lb",

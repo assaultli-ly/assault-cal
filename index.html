@@ -105,6 +105,7 @@
   .chip[data-type="fc_event"].active{background:#b073c9;}
   .chip[data-type="live_event"].active{background:#c96b57;}
   .chip[data-type="game_event"].active{background:#5aa6c9;}
+  .chip[data-type="broadcast"].active{background:#2ec4b6;}
   .chip[data-type="pop_up_shop"].active{background:#c9a257;}
 
   .calendar{
@@ -125,7 +126,7 @@
     border-bottom:1px solid var(--border);
   }
   .day{
-    min-height:96px;
+    min-height:136px;
     min-width:0;
     overflow:hidden;
     border-right:1px solid var(--border);
@@ -295,7 +296,7 @@
   </div>
 
   <div class="legend">
-    <span><span class="dot"></span>公演・イベント当日</span>
+    <span><span class="dot"></span>公演・イベント当日（色は上部の種別と対応）</span>
     <span><span class="dot ticket-open"></span>チケット販売/受付 開始</span>
     <span><span class="dot ticket-close"></span>チケット販売/受付 締切・当落発表</span>
     <span><span style="display:inline-block;width:16px;height:8px;border-radius:3px;background:var(--accent2);"></span>POP UP SHOP等の開催期間（帯表示）</span>
@@ -323,6 +324,7 @@ const TYPE_LABELS = {
   fc_event: "FCイベント",
   live_event: "ライブ",
   game_event: "ゲーム内イベント",
+  broadcast: "生放送/配信",
   pop_up_shop: "POP UP SHOP"
 };
 
@@ -349,6 +351,7 @@ const TYPE_COLORS = {
   fc_event: "#b073c9",
   live_event: "#c96b57",
   game_event: "#5aa6c9",
+  broadcast: "#2ec4b6",
   pop_up_shop: "#c9a257"
 };
 
@@ -480,26 +483,32 @@ function render(){
       lines.push({time: it.time, title: it.event.title});
     }
     lines.sort((a,b)=> (a.time||"").localeCompare(b.time||""));
+    const LINE_CAP = 4;
     let titlesHtml = "";
-    if(lines.length <= 2){
+    if(lines.length <= LINE_CAP){
       for(const l of lines){
         const label = l.time ? `${l.time} ${l.title}` : l.title;
         titlesHtml += `<div class="t">${label}</div>`;
       }
     } else if(lines.length > 0){
-      const l0 = lines[0];
-      const label0 = l0.time ? `${l0.time} ${l0.title}` : l0.title;
-      titlesHtml += `<div class="t">${label0}</div>`;
-      titlesHtml += `<div class="t more">他${lines.length-1}件</div>`;
+      for(const l of lines.slice(0, LINE_CAP-1)){
+        const label = l.time ? `${l.time} ${l.title}` : l.title;
+        titlesHtml += `<div class="t">${label}</div>`;
+      }
+      titlesHtml += `<div class="t more">他${lines.length-(LINE_CAP-1)}件</div>`;
     }
     let dotsHtml = "";
-    const kinds = items.map(it=>it.kind);
-    const openCount = kinds.filter(k=>k==="performance").length;
-    const ticketOpenCount = kinds.filter(k=>k==="ticket-open").length;
-    const ticketCloseCount = kinds.filter(k=>k==="ticket-close").length;
-    for(let i=0;i<Math.min(openCount,4);i++) dotsHtml += `<span class="dot"></span>`;
-    for(let i=0;i<Math.min(ticketOpenCount,4);i++) dotsHtml += `<span class="dot ticket-open"></span>`;
-    for(let i=0;i<Math.min(ticketCloseCount,4);i++) dotsHtml += `<span class="dot ticket-close"></span>`;
+    // Performance dots are colored per event type (same palette as the filter chips)
+    // so e.g. a livestream/broadcast reads as visually distinct from a stage performance.
+    const perfItems = items.filter(it=>it.kind==="performance");
+    const ticketOpenCount = items.filter(it=>it.kind==="ticket-open").length;
+    const ticketCloseCount = items.filter(it=>it.kind==="ticket-close").length;
+    for(let i=0;i<Math.min(perfItems.length,6);i++){
+      const color = TYPE_COLORS[perfItems[i].event.type] || "var(--stage)";
+      dotsHtml += `<span class="dot" style="background:${color}"></span>`;
+    }
+    for(let i=0;i<Math.min(ticketOpenCount,6);i++) dotsHtml += `<span class="dot ticket-open"></span>`;
+    for(let i=0;i<Math.min(ticketCloseCount,6);i++) dotsHtml += `<span class="dot ticket-close"></span>`;
 
     const weekIndex = Math.floor(ci/7);
     const laneMap = laneMaps[weekIndex];
