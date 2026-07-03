@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
-    "last_updated": "2026-07-03T00:56:12+09:00",
+    "last_updated": "2026-07-03T09:12:03+09:00",
     "sources": [
       {
         "key": "assaultlily-pj",
@@ -30,7 +30,7 @@
       }
     ],
     "schema_version": "1.0",
-    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。"
+    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-03 09:12 再巡回：5サイト（assaultlily-pj/assaultlily.jp/assaultlily.com/assaultlily-stage.jp/pius2010）を確認したが新着ニュース・イベント・チケット情報の変更なし。"
   },
   "events": [
     {
