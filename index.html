@@ -106,7 +106,7 @@
   .chip[data-type="live_event"].active{background:#c96b57;}
   .chip[data-type="game_event"].active{background:#5aa6c9;}
   .chip[data-type="broadcast"].active{background:#2ec4b6;}
-  .chip[data-type="pop_up_shop"].active{background:#c9a257;}
+  .chip[data-type="goods_sale"].active{background:#c9a257;}
 
   .calendar{
     background:var(--panel);
@@ -299,7 +299,7 @@
     <span><span class="dot"></span>公演・イベント当日（色は上部の種別と対応）</span>
     <span><span class="dot ticket-open"></span>チケット販売/受付 開始</span>
     <span><span class="dot ticket-close"></span>チケット販売/受付 締切・当落発表</span>
-    <span><span style="display:inline-block;width:16px;height:8px;border-radius:3px;background:var(--accent2);"></span>POP UP SHOP等の開催期間（帯表示）</span>
+    <span><span style="display:inline-block;width:16px;height:8px;border-radius:3px;background:var(--accent2);"></span>物販（POP UP SHOP・コラボカフェ通販等）の実施期間（帯表示）</span>
     <span><span style="display:inline-block;width:16px;height:8px;border-radius:3px;background:var(--ticket-open);"></span>チケット販売/抽選申込 受付期間（帯表示、初日開始・最終日締切の時刻つき）</span>
   </div>
 
@@ -325,7 +325,7 @@ const TYPE_LABELS = {
   live_event: "ライブ",
   game_event: "ゲーム内イベント",
   broadcast: "生放送/配信",
-  pop_up_shop: "POP UP SHOP"
+  goods_sale: "物販"
 };
 
 function pad(n){return String(n).padStart(2,"0");}
@@ -352,7 +352,7 @@ const TYPE_COLORS = {
   live_event: "#c96b57",
   game_event: "#5aa6c9",
   broadcast: "#2ec4b6",
-  pop_up_shop: "#c9a257"
+  goods_sale: "#c9a257"
 };
 
 // A "range event" has no specific performance times and spans multiple days -
@@ -386,6 +386,10 @@ function getBarItems(){
       });
     }
     (ev.tickets||[]).forEach((t, ti) => {
+      // goods_sale events (POP UP SHOP, グッズ通販等) already get one bar from the
+      // event-level date range above; skip the ticket-level bar so the same
+      // period isn't shown twice as two stacked bars.
+      if(ev.type === "goods_sale") return;
       if(isRangeTicket(t)){
         items.push({
           id: "tk-"+ev.id+"-"+ti,

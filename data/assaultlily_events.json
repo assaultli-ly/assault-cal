@@ -451,7 +451,7 @@
     },
     {
       "id": "marui-popup-2607-mitaiba",
-      "type": "pop_up_shop",
+      "type": "goods_sale",
       "title": "舞台「アサルトリリィ・シュツルム」御台場女学校編 POP UP SHOP",
       "series": "アサルトリリィ・シュツルム",
       "source_site": "marui-kitasenju",
@@ -524,7 +524,7 @@
     },
     {
       "id": "lb-fujino-mailorder-2607",
-      "type": "event",
+      "type": "goods_sale",
       "title": "ふじの食堂コラボカフェ第二弾グッズ 事後通販",
       "series": "アサルトリリィ Last Bullet",
       "source_site": "assaultlily-lb",
