@@ -503,6 +503,14 @@ function render(){
       <div class="markers">${dotsHtml}</div>
       <div class="day-titles">${titlesHtml}</div>
       <div class="range-bars">${barsHtml}</div>`;
+    // Bars are positioned absolutely (so they align across the row regardless of
+    // title length), which means they don't naturally push the row taller. Add
+    // extra bottom padding - the same amount for every cell in this row - so the
+    // grid row actually grows to leave room and normal-flow text never collides
+    // with the reserved bar area.
+    if(maxLane > 0){
+      div.style.paddingBottom = (6 + maxLane * 16) + "px";
+    }
     if(items.length){
       div.addEventListener("click", ()=>openDayPanel(key, items));
     }
