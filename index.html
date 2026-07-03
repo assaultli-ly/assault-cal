@@ -105,6 +105,7 @@
   .chip[data-type="fc_event"].active{background:#b073c9;}
   .chip[data-type="live_event"].active{background:#c96b57;}
   .chip[data-type="game_event"].active{background:#5aa6c9;}
+  .chip[data-type="pop_up_shop"].active{background:#c9a257;}
 
   .calendar{
     background:var(--panel);
@@ -289,7 +290,8 @@ const TYPE_LABELS = {
   event: "イベント",
   fc_event: "FCイベント",
   live_event: "ライブ",
-  game_event: "ゲーム内イベント"
+  game_event: "ゲーム内イベント",
+  pop_up_shop: "POP UP SHOP"
 };
 
 function pad(n){return String(n).padStart(2,"0");}

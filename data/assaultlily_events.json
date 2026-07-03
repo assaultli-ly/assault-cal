@@ -27,6 +27,11 @@
         "key": "pius",
         "name": "ピウスオフィシャルファンクラブ",
         "url": "https://pius2010.co.jp"
+      },
+      {
+        "key": "marui-kitasenju",
+        "name": "北千住マルイ（イベント情報）",
+        "url": "https://www.0101.co.jp/084/"
       }
     ],
     "schema_version": "1.0",
@@ -438,6 +443,33 @@
       "tickets": [],
       "last_seen": "2026-07-03",
       "status": "past"
+    },
+    {
+      "id": "marui-popup-2607-mitaiba",
+      "type": "pop_up_shop",
+      "title": "舞台「アサルトリリィ・シュツルム」御台場女学校編 POP UP SHOP",
+      "series": "アサルトリリィ・シュツルム",
+      "source_site": "marui-kitasenju",
+      "source_url": "https://www.0101.co.jp/084/event/detail.html?article_seq=143178&article_type=sto",
+      "venue": "北千住マルイ 3F期間限定ショップ(エスカレーター横)",
+      "date_start": "2026-07-16",
+      "date_end": "2026-07-22",
+      "performances": [],
+      "cast": [],
+      "description": "舞台「アサルトリリィ・シュツルム」御台場女学校編に合わせたポップアップショップ。営業時間10:00〜19:00（最終入場18:30）。売場混雑緩和のため全日程LINE/アプリでの事前予約制（先着）。1会計税込5,500円以上購入で描き下ろしポストカードをプレゼント、エポスカード会員限定抽選会あり。商品情報は後日発表。",
+      "tickets": [
+        {
+          "phase": "入場事前予約（LINE/アプリ）",
+          "method": "先着",
+          "sales_start": null,
+          "sales_end": null,
+          "price": null,
+          "url": null,
+          "note": "予約開始日時は店舗公式SNS等で別途案内予定（本ページには記載なし）"
+        }
+      ],
+      "last_seen": "2026-07-03",
+      "status": "upcoming"
     }
   ],
   "news": [
