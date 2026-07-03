@@ -673,7 +673,7 @@ function openEventModal(id){
   const overlay = document.getElementById("overlay");
   const body = document.getElementById("modalBody");
   let html = `<button class="close-btn" onclick="closeModal()">&times;</button>`;
-  html += `<span class="badge">${TYPE_LABELS[ev.type]||ev.type}</span>`;
+  html += `<span class="badge" style="background:${TYPE_COLORS[ev.type]||'var(--accent)'}">${TYPE_LABELS[ev.type]||ev.type}</span>`;
   html += `<h2>${ev.title}</h2>`;
   if(ev.series) html += `<div class="meta-row">シリーズ: ${ev.series}</div>`;
   if(ev.venue) html += `<div class="meta-row">会場: ${ev.venue}</div>`;
