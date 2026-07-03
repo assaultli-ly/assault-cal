@@ -521,17 +521,37 @@
       "tickets": [],
       "last_seen": "2026-07-03",
       "status": "upcoming"
+    },
+    {
+      "id": "lb-fujino-mailorder-2607",
+      "type": "event",
+      "title": "ふじの食堂コラボカフェ第二弾グッズ 事後通販",
+      "series": "アサルトリリィ Last Bullet",
+      "source_site": "assaultlily-lb",
+      "source_url": "https://assaultlily.jp/news/info/10535/",
+      "detail_url": null,
+      "venue": null,
+      "date_start": "2026-07-01",
+      "date_end": "2026-08-31",
+      "performances": [],
+      "cast": [],
+      "description": "ふじの食堂コラボカフェ第二弾グッズの事後通販。記事内の告知画像に販売期間が記載。",
+      "tickets": [
+        {
+          "phase": "事後通販",
+          "method": "先着",
+          "sales_start": "2026-07-01T12:00:00+09:00",
+          "sales_end": "2026-08-31T17:00:00+09:00",
+          "price": null,
+          "url": null,
+          "note": "「ラスバレ放送局 #125」告知記事内の画像バナーに記載（本文テキストには日時記載なし）"
+        }
+      ],
+      "last_seen": "2026-07-03",
+      "status": "upcoming"
     }
   ],
   "news": [
-    {
-      "id": "lb-20260629-02",
-      "source_site": "assaultlily-lb",
-      "title": "ふじの食堂コラボカフェ第二弾グッズの事後通販が決定（開催日時は続報待ち）",
-      "url": "https://assaultlily.jp/news/info/10535/",
-      "category": "info",
-      "published_at": "2026-06-29"
-    },
     {
       "id": "pius-20260630-01",
       "source_site": "pius",
