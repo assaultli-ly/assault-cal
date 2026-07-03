@@ -644,13 +644,17 @@ function openDayPanel(key, items){
   const body = document.getElementById("modalBody");
   let html = `<button class="close-btn" onclick="closeModal()">&times;</button>
     <h2>${fmtDate(key)}</h2><ul class="day-panel-list">`;
-  const kindLabel = {"performance":"公演/イベント","ticket-open":"販売・受付開始","ticket-close":"販売・受付締切"};
+  const kindLabel = {"ticket-open":"販売・受付開始","ticket-close":"販売・受付締切"};
   // Sort by time so the panel reads top-to-bottom chronologically within the day
   const sorted = [...items].sort((a,b)=> (a.time||"").localeCompare(b.time||""));
   sorted.forEach((it)=>{
     const timePart = it.time ? ` ${it.time}` : "";
     const phasePart = it.ticket ? `　${it.ticket.phase}` : "";
-    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${kindLabel[it.kind]}${timePart}]</span>${it.event.title}${phasePart}</li>`;
+    // "performance" is a generic dot kind covering stage shows, live events, broadcasts, etc.
+    // Show the event's own type label (舞台/生放送/配信/...) instead of one generic phrase,
+    // so e.g. a livestream doesn't read as "公演/イベント".
+    const label = it.kind === "performance" ? (TYPE_LABELS[it.event.type] || "公演/イベント") : kindLabel[it.kind];
+    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${label}${timePart}]</span>${it.event.title}${phasePart}</li>`;
   });
   html += "</ul>";
   body.innerHTML = html;
