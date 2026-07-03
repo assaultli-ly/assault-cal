@@ -37,6 +37,11 @@
         "key": "hobby-dengeki",
         "name": "電撃ホビーウェブ（アサルトリリィタグ）",
         "url": "https://hobby.dengeki.com/tag/assaultlily/"
+      },
+      {
+        "key": "victor-store",
+        "name": "VICTOR ONLINE STORE（特設ページ）",
+        "url": "https://victor-store.jp"
       }
     ],
     "schema_version": "1.0",
@@ -548,6 +553,43 @@
         }
       ],
       "last_seen": "2026-07-03",
+      "status": "upcoming"
+    },
+    {
+      "id": "victor-20260712-event",
+      "type": "event",
+      "title": "5.5周年記念ミニアルバム『Breath to Breath』発売記念 スペシャルイベント",
+      "series": "アサルトリリィ Last Bullet",
+      "source_site": "victor-store",
+      "source_url": "https://victor-store.jp/special/assaultlily202606",
+      "detail_url": null,
+      "venue": "都内某所（抽選当選者のみ案内）／落選者・購入者は生配信視聴可",
+      "date_start": "2026-07-12",
+      "date_end": "2026-07-12",
+      "performances": [
+        {
+          "date": "2026-07-12",
+          "time": "14:00",
+          "note": "出演者によるトーク＆お見送りを予定。対象商品購入者から抽選で80名を招待、落選者も生配信で視聴可。アーカイブ視聴は2026年7月19日(日)23:59まで。"
+        }
+      ],
+      "cast": [
+        "赤尾ひかる（一柳梨璃 役）",
+        "夏吉ゆうこ（白井夢結 役）"
+      ],
+      "description": "VICTOR ONLINE STOREにてミニアルバム『Breath to Breath』プレミアム盤（イベント応募専用カート）を購入した方の中から抽選で80名を都内イベントに招待するスペシャルイベント。",
+      "tickets": [
+        {
+          "phase": "イベント応募対象商品 購入・抽選応募期間",
+          "method": "抽選",
+          "sales_start": null,
+          "sales_end": "2026-06-17T23:59:00+09:00",
+          "price": "¥15,500（税込）",
+          "url": "https://victor-store.jp/item/106708",
+          "note": "クレジットカード/PayPay/キャリア決済は6/17(水)23:59まで、コンビニ支払いは6/15(月)18:00まで。当選発表は6/24(水)18時頃予定。募集期間は終了済み（記録として保持）。"
+        }
+      ],
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     }
   ],
