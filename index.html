@@ -164,6 +164,10 @@
   .day-titles .t{
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
+  .day-titles .t.more{
+    color:var(--muted);
+    font-weight:600;
+  }
 
   .range-bars{
     position:absolute;
@@ -463,10 +467,30 @@ function render(){
     const div = document.createElement("div");
     div.className = "day" + (c.other?" other-month":"") + (key===todayKey?" today":"");
     const items = idx[key] || [];
+    // Build one display line per distinct (time, title) so same-titled events at
+    // different times don't collapse into indistinguishable truncated duplicates.
+    // Time is shown first since it's usually the only thing that differs once
+    // long titles get ellipsis-truncated to fit the cell.
+    const seenLines = new Set();
+    const lines = [];
+    for(const it of items){
+      const lineKey = (it.time||"") + "|" + it.event.title;
+      if(seenLines.has(lineKey)) continue;
+      seenLines.add(lineKey);
+      lines.push({time: it.time, title: it.event.title});
+    }
+    lines.sort((a,b)=> (a.time||"").localeCompare(b.time||""));
     let titlesHtml = "";
-    const uniqTitles = [...new Set(items.map(it=>it.event.title))].slice(0,2);
-    for(const t of uniqTitles){
-      titlesHtml += `<div class="t">${t}</div>`;
+    if(lines.length <= 2){
+      for(const l of lines){
+        const label = l.time ? `${l.time} ${l.title}` : l.title;
+        titlesHtml += `<div class="t">${label}</div>`;
+      }
+    } else if(lines.length > 0){
+      const l0 = lines[0];
+      const label0 = l0.time ? `${l0.time} ${l0.title}` : l0.title;
+      titlesHtml += `<div class="t">${label0}</div>`;
+      titlesHtml += `<div class="t more">他${lines.length-1}件</div>`;
     }
     let dotsHtml = "";
     const kinds = items.map(it=>it.kind);
