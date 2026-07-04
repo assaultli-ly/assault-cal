@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
-    "last_updated": "2026-07-03T09:12:03+09:00",
+    "last_updated": "2026-07-04T10:00:00+09:00",
     "sources": [
       {
         "key": "assaultlily-pj",
@@ -45,7 +45,7 @@
       }
     ],
     "schema_version": "1.0",
-    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-03 09:12 再巡回：5サイト（assaultlily-pj/assaultlily.jp/assaultlily.com/assaultlily-stage.jp/pius2010）を確認したが新着ニュース・イベント・チケット情報の変更なし。"
+    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-04 再巡回：6サイト（assaultlily-pj/assaultlily.jp/assaultlily.com/assaultlily-stage.jp/pius2010/hobby.dengeki）をClaude in Chrome経由で確認。www.assaultlily.comに新規ニュース（御台場女学校編アゾン物販情報、2026.07.03付）を検出し追加。他サイトは前回巡回時点から新着なし。POP UP SHOP・コラボカフェ関連はWebSearchでも確認したが、既存収録イベント（マルイ御台場POP UP SHOP、ふじの食堂第二弾グッズ通販）と重複する内容のみで新規の店舗イベントは見つからず。"
   },
   "events": [
     {
@@ -94,7 +94,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -188,7 +188,7 @@
           "note": "一般は6/29(月)21:00〜"
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -318,7 +318,7 @@
           "note": "税込"
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -372,7 +372,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -400,7 +400,7 @@
           "note": "チケットは後日解禁（未定）"
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "tbd"
     },
     {
@@ -417,7 +417,7 @@
       "cast": [],
       "description": "原案：尾花沢軒栄（acus） 脚本・演出：桜木さやか（ルドビコ★） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。",
       "tickets": [],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "tbd"
     },
     {
@@ -434,7 +434,7 @@
       "cast": [],
       "description": "原作：尾花沢軒栄（acus） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。assaultlily-pj.com 2026.05.30ニュースにて上演決定告知。",
       "tickets": [],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "tbd"
     },
     {
@@ -478,7 +478,7 @@
           "note": "予約開始日時は店舗公式SNS等で別途案内予定（本ページには記載なし）"
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -501,7 +501,7 @@
       "cast": [],
       "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。5.5周年を記念したスペシャル生放送。",
       "tickets": [],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -524,7 +524,7 @@
       "cast": [],
       "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。",
       "tickets": [],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -552,7 +552,7 @@
           "note": "「ラスバレ放送局 #125」告知記事内の画像バナーに記載（本文テキストには日時記載なし）"
         }
       ],
-      "last_seen": "2026-07-03",
+      "last_seen": "2026-07-04",
       "status": "upcoming"
     },
     {
@@ -594,6 +594,14 @@
     }
   ],
   "news": [
+    {
+      "id": "com-20260703-01",
+      "source_site": "assaultlily-com",
+      "title": "『舞台「アサルトリリィ・シュツルム」〜御台場女学校編〜 』アゾン物販情報のお知らせ",
+      "url": "https://www.assaultlily.com/news/2016.html/",
+      "category": "goods",
+      "published_at": "2026-07-03"
+    },
     {
       "id": "pius-20260630-01",
       "source_site": "pius",
