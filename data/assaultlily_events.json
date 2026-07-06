@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
-    "last_updated": "2026-07-05T09:12:00+09:00",
+    "last_updated": "2026-07-06T09:12:00+09:00",
     "sources": [
       {
         "key": "assaultlily-pj",
@@ -45,7 +45,7 @@
       }
     ],
     "schema_version": "1.0",
-    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-05 再巡回：6サイトを確認。assaultlily-stage.jpに新規記事（cat_stage/704、舞台「アサルトリリィ×私立ルドビコ女学院」上演タイトル・全キャスト発表）を検出し、既存イベントpius-112426を更新（サブタイトル「〜白薔薇のパスカ〜」・出演者情報を追加、statusをtbd→upcomingに変更）。他5サイトは前回巡回時点から新着なし。7/4開催済みのFC系イベント（pius-112350, pius-111338）はstatusをpastに更新。POP UP SHOP・コラボカフェ関連はWebSearchでも確認したが、既存収録イベントと重複する内容のみで新規の店舗イベントは見つからず。"
+    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-05 再巡回：6サイトを確認。assaultlily-stage.jpに新規記事（cat_stage/704、舞台「アサルトリリィ×私立ルドビコ女学院」上演タイトル・全キャスト発表）を検出し、既存イベントpius-112426を更新（サブタイトル「〜白薔薇のパスカ〜」・出演者情報を追加、statusをtbd→upcomingに変更）。他5サイトは前回巡回時点から新着なし。7/4開催済みのFC系イベント（pius-112350, pius-111338）はstatusをpastに更新。POP UP SHOP・コラボカフェ関連はWebSearchでも確認したが、既存収録イベントと重複する内容のみで新規の店舗イベントは見つからず。2026-07-06 再巡回：6サイト＋電撃ホビーウェブ＋マルイPOP UP SHOP詳細ページを確認したが、いずれも前回巡回時点から新着なし（ニュース・チケット情報とも既存データと一致）。pius公式サイトのWHAT'S NEWSに掲載された出演キャラクター＆キャスト発表記事（contents/406130、内容は既存のpius-112426更新分と同一）をnewsに追加。WebSearchで「アサルトリリィ POP UP SHOP/コラボカフェ 2026」を確認したが、見つかったのはすべて開催済みの過去イベントで新規の店舗イベントはなし。"
   },
   "events": [
     {
@@ -318,7 +318,7 @@
           "note": "税込"
         }
       ],
-      "last_seen": "2026-07-05",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -372,7 +372,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-05",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -400,7 +400,7 @@
           "note": "チケットは後日解禁（未定）"
         }
       ],
-      "last_seen": "2026-07-04",
+      "last_seen": "2026-07-06",
       "status": "tbd"
     },
     {
@@ -442,7 +442,7 @@
       ],
       "description": "原案：尾花沢軒栄（acus） 脚本・演出：桜木さやか（ルドビコ★） 主催：株式会社ピウス、株式会社アゾンインターナショナル。2026-07-04付でサブタイトル「〜白薔薇のパスカ〜」と全出演者が発表された。チケット情報は続報待ち。",
       "tickets": [],
-      "last_seen": "2026-07-05",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -459,7 +459,7 @@
       "cast": [],
       "description": "原作：尾花沢軒栄（acus） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。assaultlily-pj.com 2026.05.30ニュースにて上演決定告知。",
       "tickets": [],
-      "last_seen": "2026-07-04",
+      "last_seen": "2026-07-06",
       "status": "tbd"
     },
     {
@@ -503,7 +503,7 @@
           "note": "予約開始日時は店舗公式SNS等で別途案内予定（本ページには記載なし）"
         }
       ],
-      "last_seen": "2026-07-04",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -526,7 +526,7 @@
       "cast": [],
       "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。5.5周年を記念したスペシャル生放送。",
       "tickets": [],
-      "last_seen": "2026-07-04",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -549,7 +549,7 @@
       "cast": [],
       "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。",
       "tickets": [],
-      "last_seen": "2026-07-04",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -577,7 +577,7 @@
           "note": "「ラスバレ放送局 #125」告知記事内の画像バナーに記載（本文テキストには日時記載なし）"
         }
       ],
-      "last_seen": "2026-07-04",
+      "last_seen": "2026-07-06",
       "status": "upcoming"
     },
     {
@@ -619,6 +619,14 @@
     }
   ],
   "news": [
+    {
+      "id": "pius-20260704-02",
+      "source_site": "pius",
+      "title": "出演キャラクター＆キャスト発表！！舞台「アサルトリリィ×私立ルドビコ女学院」〜白薔薇のパスカ〜",
+      "url": "https://pius2010.co.jp/contents/406130",
+      "category": "STAGE & EVENT",
+      "published_at": "2026-07-04"
+    },
     {
       "id": "stage-20260704-01",
       "source_site": "assaultlily-stage",
