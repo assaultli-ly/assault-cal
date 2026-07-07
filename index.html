@@ -461,6 +461,8 @@ function getBarItems(){
       items.push({
         id: "ev-"+ev.id,
         eventId: ev.id,
+        event: ev,
+        ticket: null,
         dateStart: ev.date_start,
         dateEnd: ev.date_end,
         color: TYPE_COLORS[ev.type] || "#888",
@@ -477,6 +479,8 @@ function getBarItems(){
         items.push({
           id: "tk-"+ev.id+"-"+ti,
           eventId: ev.id,
+          event: ev,
+          ticket: t,
           dateStart: t.sales_start.slice(0,10),
           dateEnd: t.sales_end.slice(0,10),
           color: "var(--ticket-open)",
@@ -631,8 +635,20 @@ function render(){
     if(maxLane > 0){
       div.style.paddingBottom = (6 + maxLane * 16) + "px";
     }
-    if(items.length){
-      div.addEventListener("click", ()=>openDayPanel(key, items));
+    // Range bars (物販期間・チケット受付期間等) are drawn separately as bars, but the
+    // user should also be able to find them by clicking into the day's list panel -
+    // so fold whichever bars are active on this day into the same panel items.
+    const dayBars = barItems.filter(it => key>=it.dateStart && key<=it.dateEnd);
+    const panelItems = items.concat(dayBars.map(it => ({
+      kind: it.ticket ? "ticket-range" : "event-range",
+      event: it.event,
+      ticket: it.ticket,
+      time: null,
+      rangeStart: it.dateStart,
+      rangeEnd: it.dateEnd
+    })));
+    if(panelItems.length){
+      div.addEventListener("click", ()=>openDayPanel(key, panelItems));
     }
     container.appendChild(div);
   });
@@ -644,17 +660,21 @@ function openDayPanel(key, items){
   const body = document.getElementById("modalBody");
   let html = `<button class="close-btn" onclick="closeModal()">&times;</button>
     <h2>${fmtDate(key)}</h2><ul class="day-panel-list">`;
-  const kindLabel = {"ticket-open":"販売・受付開始","ticket-close":"販売・受付締切"};
-  // Sort by time so the panel reads top-to-bottom chronologically within the day
-  const sorted = [...items].sort((a,b)=> (a.time||"").localeCompare(b.time||""));
+  const kindLabel = {"ticket-open":"販売・受付開始","ticket-close":"販売・受付締切","ticket-range":"受付期間中","event-range":"実施期間中"};
+  // Sort by time so the panel reads top-to-bottom chronologically within the day.
+  // Range items (物販期間・チケット受付期間) have no specific time, so they sort after
+  // the timed entries rather than jumping to the front.
+  const sorted = [...items].sort((a,b)=> (a.time||"24:00").localeCompare(b.time||"24:00"));
   sorted.forEach((it)=>{
     const timePart = it.time ? ` ${it.time}` : "";
+    const isRange = it.kind === "ticket-range" || it.kind === "event-range";
     const phasePart = it.ticket ? `　${it.ticket.phase}` : "";
+    const periodPart = isRange ? `　（${fmtDate(it.rangeStart)}〜${fmtDate(it.rangeEnd)}）` : "";
     // "performance" is a generic dot kind covering stage shows, live events, broadcasts, etc.
     // Show the event's own type label (舞台/生放送/配信/...) instead of one generic phrase,
     // so e.g. a livestream doesn't read as "公演/イベント".
     const label = it.kind === "performance" ? (TYPE_LABELS[it.event.type] || "公演/イベント") : kindLabel[it.kind];
-    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${label}${timePart}]</span>${it.event.title}${phasePart}</li>`;
+    html += `<li onclick="openEventModal('${it.event.id}')"><span class="kindtag">[${label}${timePart}]</span>${it.event.title}${phasePart}${periodPart}</li>`;
   });
   html += "</ul>";
   body.innerHTML = html;
