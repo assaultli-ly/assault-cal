@@ -340,6 +340,11 @@
   }
   .news-list a{color:var(--text);text-decoration:none;}
   .news-list a:hover{color:var(--accent);}
+  .news-more{
+    display:block;text-align:right;margin-top:10px;
+    font-size:.78rem;font-weight:600;color:var(--accent);text-decoration:none;
+  }
+  .news-more:hover{color:var(--ink);}
 
   footer{
     text-align:center;color:var(--muted-soft);font-size:.72rem;
@@ -484,6 +489,7 @@
 
   <div class="section-title">最新ニュース</div>
   <ul class="news-list" id="newsList"></ul>
+  <a href="news.html" id="newsMoreLink" class="news-more" style="display:none;"></a>
 
   <footer id="footerInfo"></footer>
 
@@ -855,13 +861,25 @@ const SOURCE_SHORT = {
   "victor-store": "VICTOR STORE"
 };
 
+const NEWS_LIST_LIMIT = 20;
+
 function renderNews(){
   const list = document.getElementById("newsList");
-  const items = [...DATA.news].sort((a,b)=> b.published_at.localeCompare(a.published_at)).slice(0,12);
+  const sorted = [...DATA.news].sort((a,b)=> b.published_at.localeCompare(a.published_at));
+  const items = sorted.slice(0, NEWS_LIST_LIMIT);
   list.innerHTML = items.map(n=>{
     const src = SOURCE_SHORT[n.source_site] || n.source_site;
     return `<li><span class="date">${n.published_at}</span><span class="src">${src}</span><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a></li>`;
   }).join("");
+  const moreLink = document.getElementById("newsMoreLink");
+  if(moreLink){
+    if(sorted.length > NEWS_LIST_LIMIT){
+      moreLink.style.display = "";
+      moreLink.textContent = `古いニュースを見る（全${sorted.length}件）→`;
+    } else {
+      moreLink.style.display = "none";
+    }
+  }
 }
 
 function renderFilters(){
