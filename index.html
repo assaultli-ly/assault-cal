@@ -129,6 +129,19 @@
     transition:.18s ease;
   }
   .month-nav button:hover{background:var(--accent);border-color:var(--accent);}
+  .month-nav #todayBtn{
+    appearance:none;-webkit-appearance:none;
+    width:auto;height:32px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    color:var(--text);
+    border-radius:999px;
+    padding:0 14px;
+    font-size:.76rem;
+    font-weight:600;
+    margin-left:2px;
+  }
+  .month-nav #todayBtn:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
   .month-label{
     font-family:"Shippori Mincho", serif;
     font-size:1.2rem;
@@ -443,9 +456,10 @@
 <div class="wrap">
   <div class="toolbar">
     <div class="month-nav">
-      <button id="prevBtn">&#8249;</button>
+      <button id="prevBtn" aria-label="前の月">&#8249;</button>
       <div class="month-label" id="monthLabel">-</div>
-      <button id="nextBtn">&#8250;</button>
+      <button id="nextBtn" aria-label="次の月">&#8250;</button>
+      <button id="todayBtn" type="button">今日</button>
     </div>
     <div class="filters" id="filters"></div>
   </div>
@@ -870,6 +884,11 @@ document.getElementById("overlay").addEventListener("click", (e)=>{
 });
 document.getElementById("prevBtn").addEventListener("click", ()=>{ current.setMonth(current.getMonth()-1); render(); });
 document.getElementById("nextBtn").addEventListener("click", ()=>{ current.setMonth(current.getMonth()+1); render(); });
+document.getElementById("todayBtn").addEventListener("click", ()=>{
+  current = new Date();
+  render();
+  document.querySelector(".calendar").scrollIntoView({behavior:"smooth", block:"center"});
+});
 
 fetch(DATA_URL).then(r=>r.json()).then(data=>{
   DATA = data;
