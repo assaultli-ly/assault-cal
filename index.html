@@ -279,6 +279,11 @@
     background:var(--panel2);border:1px solid var(--border-soft);
     padding:2px 8px;border-radius:999px;flex:none;
   }
+  .news-list .src{
+    color:var(--accent);white-space:nowrap;font-size:.68rem;font-weight:600;
+    border:1px solid var(--accent);
+    padding:1px 8px;border-radius:999px;flex:none;
+  }
   .news-list a{color:var(--text);text-decoration:none;}
   .news-list a:hover{color:var(--accent);}
 
@@ -750,10 +755,28 @@ function closeModal(){
   document.getElementById("overlay").classList.remove("show");
 }
 
+// Short labels for the news list badge - the full meta.sources names (used in the
+// footer) are too long to sit inline next to every headline, so this is a
+// compact alias per source. Falls back to the source key itself for any
+// future source that isn't in this list yet.
+const SOURCE_SHORT = {
+  "assaultlily-pj": "プロジェクトサイト",
+  "assaultlily-com": "Assault Lily",
+  "assaultlily-lb": "ラスバレ公式",
+  "assaultlily-stage": "舞台公式",
+  "pius": "ピウスFC",
+  "marui-kitasenju": "北千住マルイ",
+  "hobby-dengeki": "電撃ホビーウェブ",
+  "victor-store": "VICTOR STORE"
+};
+
 function renderNews(){
   const list = document.getElementById("newsList");
   const items = [...DATA.news].sort((a,b)=> b.published_at.localeCompare(a.published_at)).slice(0,12);
-  list.innerHTML = items.map(n=>`<li><span class="date">${n.published_at}</span><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a></li>`).join("");
+  list.innerHTML = items.map(n=>{
+    const src = SOURCE_SHORT[n.source_site] || n.source_site;
+    return `<li><span class="date">${n.published_at}</span><span class="src">${src}</span><a href="${n.url}" target="_blank" rel="noopener">${n.title}</a></li>`;
+  }).join("");
 }
 
 function renderFilters(){
