@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
-    "last_updated": "2026-07-13T05:14:04+09:00",
+    "last_updated": "2026-07-14T05:12:32+09:00",
     "sources": [
       {
         "key": "assaultlily-pj",
@@ -45,7 +45,7 @@
       }
     ],
     "schema_version": "1.0",
-    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-05 再巡回：6サイトを確認。assaultlily-stage.jpに新規記事（cat_stage/704、舞台「アサルトリリィ×私立ルドビコ女学院」上演タイトル・全キャスト発表）を検出し、既存イベントpius-112426を更新（サブタイトル「〜白薔薇のパスカ〜」・出演者情報を追加、statusをtbd→upcomingに変更）。他5サイトは前回巡回時点から新着なし。7/4開催済みのFC系イベント（pius-112350, pius-111338）はstatusをpastに更新。POP UP SHOP・コラボカフェ関連はWebSearchでも確認したが、既存収録イベントと重複する内容のみで新規の店舗イベントは見つからず。2026-07-06 再巡回：6サイト＋電撃ホビーウェブ＋マルイPOP UP SHOP詳細ページを確認したが、いずれも前回巡回時点から新着なし（ニュース・チケット情報とも既存データと一致）。pius公式サイトのWHAT'S NEWSに掲載された出演キャラクター＆キャスト発表記事（contents/406130、内容は既存のpius-112426更新分と同一）をnewsに追加。WebSearchで「アサルトリリィ POP UP SHOP/コラボカフェ 2026」を確認したが、見つかったのはすべて開催済みの過去イベントで新規の店舗イベントはなし。 2026-07-07 再巡回：assaultlily-pj.com（News/Event/Stage）、assaultlily.jp（INFO/EVENT/CAMPAIGN、WordPress REST API相当のカテゴリ一覧）、pius2010.co.jp（WHAT'S NEWS、STAGE&EVENT一覧、schedules/97714詳細）を確認したが、いずれも前回巡回時点から新着なし。ふじの食堂コラボカフェ第二弾の事後通販URL（shop.collabocafe.tokyo/collections/assaultlily_4）を記事本文から確認しticketsのurlに追加。www.assaultlily.com／assaultlily-stage.jp／hobby.dengeki.comはJS描画のためClaude in Chrome経由の取得を試みたが拡張機能が未接続のため今回はスキップ（次回に再試行）。WebSearchで「アサルトリリィ POP UP SHOP/コラボカフェ 2026」を確認したが、見つかったのは3月（横浜スカイビル）・4月（サングリーズル編第2弾）等いずれも開催済みの過去イベントで、既存収録の7月北千住マルイPOP UP SHOP以外の新規店舗イベントはなし。 2026-07-08 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News INFO/EVENT/CAMPAIGN、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHATS NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規」を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、7月北千住マルイ）で新規の店舗イベントはなし。 2026-07-09 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-08）時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規開催」「アサルトリリィ 御台場女学校編 POP UP SHOP 予約開始」を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、7月北千住マルイ）で新規の店舗イベントはなし。全イベントのlast_seenを更新。 2026-07-10 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-09）時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規開催」「アサルトリリィ 御台場女学校編 POP UP SHOP 予約開始」等を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾池袋/大阪、7月北千住マルイ）で新規の店舗イベントはなし。全イベントのlast_seenを更新。 2026-07-11 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News INFO/EVENT/CAMPAIGN、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-10）時点から新着なし。北千住マルイPOP UP SHOP詳細ページ・電撃ホビーウェブ関連記事（news/3046117）も再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規開催」「アサルトリリィ 御台場女学校編 POP UP SHOP 予約開始」を確認したが、ヒットしたのは2021年・2023年の過去記事（HAL-VAL事後通販、アゾンニュース旧御台場女学校編）や既存収録済みイベント（3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾、7月北千住マルイ）のみで、新規の店舗イベントは見つからず。全イベントのlast_seenを更新。 2026-07-12 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認。assaultlily.jpに新着ニュース（news/campaign/10434「5.5周年目前！ラスバレ放送局X連動キャンペーン開催！」、応募期間2026/7/10〜7/15）を検出しnewsに追加、あわせて既存イベントlb-broadcast-20260719の説明に正式配信タイトル「ラスバレ放送局 〜ラスバレ5.5周年 リリチャレ!!〜青空へ弾ける水しぶき！全力サマーSP〜」を追記。他5サイトは前回巡回時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月 新規開催」「アサルトリリィ コラボカフェ 2026 新規」を確認したが、見つかったのはすべて開催済み（1月emocafe池袋5周年コラボカフェ、3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾、7月北千住マルイ）で新規の店舗イベントはなし。7/11開催済みのlb-broadcast-20260711（レギオンチャンピオンシップ決勝戦配信）はstatusをpastに更新。全イベントのlast_seenを更新。 2026-07-13 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認。電撃ホビーウェブに新着記事（news/3077573「舞台「アサルトリリィ・シュツルム」第3弾、御台場女学校編に合わせ2026年7月16日から開催されるPOP UP SHOPの新作グッズと特典情報公開！」、2026-07-12公開）を検出しnewsに追加、既存イベントmarui-popup-2607-mitaibaの説明に販売予定グッズ詳細（Tシャツ・アクリルスタンド各種等）と「アサルトリリィマガジンDX5」発売日（7/21先行販売開始）を追記。北千住マルイ詳細ページ本体は商品情報・予約開始日時とも「後日案内」のまま変更なし。他5サイトは前回巡回時点から新着なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月 新規開催」「アサルトリリィ コラボカフェ 2026 新規」を確認し、collabo-cafe.comのアサルトリリィカテゴリ一覧も確認したが、新規の店舗イベントは見つからず。7/12開催済みのvictor-20260712-event（Breath to Breathスペシャルイベント）はstatusをpastに更新。全イベントのlast_seenを更新。"
+    "notes": "assaultlily-stage.jp / www.assaultlily.com はJS描画のため、Claude in Chrome拡張機能経由で取得（2026-07-03に接続確認・取得成功）。pius2010.co.jp STAGE&EVENT一覧に確認された「ねお・りーでぃんぐ「スライム倒して300年、知らないうちにレベルMAXになってました」」（schedules/109220）と「舞台「炎の蜃気楼・幕末編」」（schedules/109455）はアサルトリリィと無関係の別演目のため収録対象外とした。2026-07-05 再巡回：6サイトを確認。assaultlily-stage.jpに新規記事（cat_stage/704、舞台「アサルトリリィ×私立ルドビコ女学院」上演タイトル・全キャスト発表）を検出し、既存イベントpius-112426を更新（サブタイトル「〜白薔薇のパスカ〜」・出演者情報を追加、statusをtbd→upcomingに変更）。他5サイトは前回巡回時点から新着なし。7/4開催済みのFC系イベント（pius-112350, pius-111338）はstatusをpastに更新。POP UP SHOP・コラボカフェ関連はWebSearchでも確認したが、既存収録イベントと重複する内容のみで新規の店舗イベントは見つからず。2026-07-06 再巡回：6サイト＋電撃ホビーウェブ＋マルイPOP UP SHOP詳細ページを確認したが、いずれも前回巡回時点から新着なし（ニュース・チケット情報とも既存データと一致）。pius公式サイトのWHAT'S NEWSに掲載された出演キャラクター＆キャスト発表記事（contents/406130、内容は既存のpius-112426更新分と同一）をnewsに追加。WebSearchで「アサルトリリィ POP UP SHOP/コラボカフェ 2026」を確認したが、見つかったのはすべて開催済みの過去イベントで新規の店舗イベントはなし。 2026-07-07 再巡回：assaultlily-pj.com（News/Event/Stage）、assaultlily.jp（INFO/EVENT/CAMPAIGN、WordPress REST API相当のカテゴリ一覧）、pius2010.co.jp（WHAT'S NEWS、STAGE&EVENT一覧、schedules/97714詳細）を確認したが、いずれも前回巡回時点から新着なし。ふじの食堂コラボカフェ第二弾の事後通販URL（shop.collabocafe.tokyo/collections/assaultlily_4）を記事本文から確認しticketsのurlに追加。www.assaultlily.com／assaultlily-stage.jp／hobby.dengeki.comはJS描画のためClaude in Chrome経由の取得を試みたが拡張機能が未接続のため今回はスキップ（次回に再試行）。WebSearchで「アサルトリリィ POP UP SHOP/コラボカフェ 2026」を確認したが、見つかったのは3月（横浜スカイビル）・4月（サングリーズル編第2弾）等いずれも開催済みの過去イベントで、既存収録の7月北千住マルイPOP UP SHOP以外の新規店舗イベントはなし。 2026-07-08 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News INFO/EVENT/CAMPAIGN、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHATS NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規」を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、7月北千住マルイ）で新規の店舗イベントはなし。 2026-07-09 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-08）時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規開催」「アサルトリリィ 御台場女学校編 POP UP SHOP 予約開始」を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、7月北千住マルイ）で新規の店舗イベントはなし。全イベントのlast_seenを更新。 2026-07-10 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-09）時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規開催」「アサルトリリィ 御台場女学校編 POP UP SHOP 予約開始」等を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾池袋/大阪、7月北千住マルイ）で新規の店舗イベントはなし。全イベントのlast_seenを更新。 2026-07-11 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News INFO/EVENT/CAMPAIGN、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-10）時点から新着なし。北千住マルイPOP UP SHOP詳細ページ・電撃ホビーウェブ関連記事（news/3046117）も再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月」「アサルトリリィ コラボカフェ 2026 新規開催」「アサルトリリィ 御台場女学校編 POP UP SHOP 予約開始」を確認したが、ヒットしたのは2021年・2023年の過去記事（HAL-VAL事後通販、アゾンニュース旧御台場女学校編）や既存収録済みイベント（3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾、7月北千住マルイ）のみで、新規の店舗イベントは見つからず。全イベントのlast_seenを更新。 2026-07-12 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認。assaultlily.jpに新着ニュース（news/campaign/10434「5.5周年目前！ラスバレ放送局X連動キャンペーン開催！」、応募期間2026/7/10〜7/15）を検出しnewsに追加、あわせて既存イベントlb-broadcast-20260719の説明に正式配信タイトル「ラスバレ放送局 〜ラスバレ5.5周年 リリチャレ!!〜青空へ弾ける水しぶき！全力サマーSP〜」を追記。他5サイトは前回巡回時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日案内」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月 新規開催」「アサルトリリィ コラボカフェ 2026 新規」を確認したが、見つかったのはすべて開催済み（1月emocafe池袋5周年コラボカフェ、3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾、7月北千住マルイ）で新規の店舗イベントはなし。7/11開催済みのlb-broadcast-20260711（レギオンチャンピオンシップ決勝戦配信）はstatusをpastに更新。全イベントのlast_seenを更新。 2026-07-13 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認。電撃ホビーウェブに新着記事（news/3077573「舞台「アサルトリリィ・シュツルム」第3弾、御台場女学校編に合わせ2026年7月16日から開催されるPOP UP SHOPの新作グッズと特典情報公開！」、2026-07-12公開）を検出しnewsに追加、既存イベントmarui-popup-2607-mitaibaの説明に販売予定グッズ詳細（Tシャツ・アクリルスタンド各種等）と「アサルトリリィマガジンDX5」発売日（7/21先行販売開始）を追記。北千住マルイ詳細ページ本体は商品情報・予約開始日時とも「後日案内」のまま変更なし。他5サイトは前回巡回時点から新着なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月 新規開催」「アサルトリリィ コラボカフェ 2026 新規」を確認し、collabo-cafe.comのアサルトリリィカテゴリ一覧も確認したが、新規の店舗イベントは見つからず。7/12開催済みのvictor-20260712-event（Breath to Breathスペシャルイベント）はstatusをpastに更新。全イベントのlast_seenを更新。 2026-07-14 再巡回：6サイト（assaultlily-pj.com News/Event/Stage、assaultlily.jp News、www.assaultlily.com（Chrome）、assaultlily-stage.jp（Chrome）、pius2010.co.jp STAGE&EVENT一覧・WHAT'S NEWS・schedules/97714詳細、hobby.dengeki.com（Chrome））を確認したが、いずれも前回巡回（07-13）時点から新着なし。北千住マルイPOP UP SHOP詳細ページも再確認したが商品情報・予約開始日時とも「後日お知らせ」のまま変更なし。WebSearchで「アサルトリリィ POP UP SHOP 2026年8月 新規開催」「アサルトリリィ コラボカフェ 2026 新規」を確認したが、見つかったのはすべて開催済み（3月横浜スカイビル、4月サングリーズル編第2弾、5-6月ふじの食堂コラボカフェ第二弾、7月北千住マルイ）で新規の店舗イベントはなし。日付経過によるstatus変更対象イベントもなし。全イベントのlast_seenを更新。"
   },
   "events": [
     {
@@ -94,7 +94,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "past"
     },
     {
@@ -188,7 +188,7 @@
           "note": "一般は6/29(月)21:00〜"
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "past"
     },
     {
@@ -318,7 +318,7 @@
           "note": "税込"
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "upcoming"
     },
     {
@@ -372,7 +372,7 @@
           "note": null
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "upcoming"
     },
     {
@@ -400,7 +400,7 @@
           "note": "チケットは後日解禁（未定）"
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "tbd"
     },
     {
@@ -442,7 +442,7 @@
       ],
       "description": "原案：尾花沢軒栄（acus） 脚本・演出：桜木さやか（ルドビコ★） 主催：株式会社ピウス、株式会社アゾンインターナショナル。2026-07-04付でサブタイトル「〜白薔薇のパスカ〜」と全出演者が発表された。チケット情報は続報待ち。",
       "tickets": [],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "upcoming"
     },
     {
@@ -459,7 +459,7 @@
       "cast": [],
       "description": "原作：尾花沢軒栄（acus） 主催：株式会社ピウス、株式会社アゾンインターナショナル。続報待ち。assaultlily-pj.com 2026.05.30ニュースにて上演決定告知。",
       "tickets": [],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "tbd"
     },
     {
@@ -476,7 +476,7 @@
       "cast": [],
       "description": "ラスバレ5周年記念ライブイベント（開催済み）。",
       "tickets": [],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "past"
     },
     {
@@ -503,7 +503,7 @@
           "note": "予約開始日時は店舗公式SNS等で別途案内予定（本ページには記載なし、2026-07-13時点も未公開）"
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "upcoming"
     },
     {
@@ -526,7 +526,7 @@
       "cast": [],
       "description": "正式タイトルは「ラスバレ放送局 〜ラスバレ5.5周年 リリチャレ!!〜青空へ弾ける水しぶき！全力サマーSP〜」。「ラスバレ放送局 #125」（6/29公開）にて告知。5.5周年を記念したスペシャル生放送。",
       "tickets": [],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "upcoming"
     },
     {
@@ -549,7 +549,7 @@
       "cast": [],
       "description": "「ラスバレ放送局 #125」（6/29公開）にて告知。",
       "tickets": [],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "past"
     },
     {
@@ -577,7 +577,7 @@
           "note": "「ラスバレ放送局 #125」告知記事内の画像バナーに記載（本文テキストには日時記載なし）"
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "upcoming"
     },
     {
@@ -614,7 +614,7 @@
           "note": "クレジットカード/PayPay/キャリア決済は6/17(水)23:59まで、コンビニ支払いは6/15(月)18:00まで。当選発表は6/24(水)18時頃予定。募集期間は終了済み（記録として保持）。"
         }
       ],
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "status": "past"
     }
   ],
