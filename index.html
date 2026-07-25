@@ -616,6 +616,15 @@ function buildCalendarIndex(){
       for(const p of ev.performances){
         push(p.date, {kind:"performance", event:ev, time:p.time, note:p.note});
       }
+    } else if(ev.type === "goods_sale"){
+      // goods_sale events (POP UP SHOP・通販等) are represented via their ticket
+      // entries below (open/close dots, or a range bar for multi-day periods)
+      // instead of this generic single-day entry - otherwise a same-day sale
+      // (date_start with no date_end, ticket sales_start on the same day) gets
+      // counted twice: once here, once as a ticket-open item.
+      if((!ev.tickets || !ev.tickets.length) && ev.date_start && !isRangeEvent(ev)){
+        push(ev.date_start, {kind:"performance", event:ev, time:null, note:null});
+      }
     } else if(ev.date_start && !isRangeEvent(ev)){
       push(ev.date_start, {kind:"performance", event:ev, time:null, note:null});
     }
