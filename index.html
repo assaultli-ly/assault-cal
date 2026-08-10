@@ -294,12 +294,6 @@
   .range-bar.range-start{margin-left:6px;border-radius:4px 0 0 4px;}
   .range-bar.range-end{margin-right:6px;border-radius:0 4px 4px 0;}
   .range-bar.range-start.range-end{margin:0 6px;border-radius:4px;}
-  .range-bar.range-overflow{
-    margin:0 6px;border-radius:4px;
-    background:var(--panel3);color:var(--muted);
-    border:1px dashed var(--border);
-    text-align:center;font-weight:600;
-  }
 
   .legend{
     display:flex;flex-direction:column;gap:9px;
@@ -544,9 +538,6 @@ function fmtDate(str){
   return `${y}/${pad(m)}/${pad(d)}(${w})`;
 }
 
-// Max stacked bar lanes shown per day before collapsing the rest into a "+N件" summary.
-const MAX_BAR_LANES = 3;
-
 const TYPE_COLORS = {
   stage: "#c8577e",
   event: "#b8567d",
@@ -732,25 +723,10 @@ function render(){
     const weekIndex = Math.floor(ci/7);
     const laneMap = laneMaps[weekIndex];
     const maxLane = maxLanes[weekIndex];
-    // Cap how many stacked bar lanes a row can grow to. Without this, weeks with
-    // many concurrent multi-day items (goods_sale periods, ticket windows, etc.)
-    // balloon in height and become a wall of same-colored, mostly-unlabeled bars.
-    // Anything beyond the cap collapses into a single "+N件" bar on the last lane;
-    // clicking anywhere in the day cell still opens the day panel with the full,
-    // uncapped list, so nothing is actually hidden - just decluttered visually.
-    const visibleLanes = Math.min(maxLane, MAX_BAR_LANES);
-    const isCapped = maxLane > MAX_BAR_LANES;
     let barsHtml = "";
     if(maxLane > 0){
       const activeToday = barItems.filter(it => key>=it.dateStart && key<=it.dateEnd);
-      for(let lane=0; lane<visibleLanes; lane++){
-        if(isCapped && lane === MAX_BAR_LANES-1){
-          const overflowCount = activeToday.filter(x => laneMap[x.id] >= MAX_BAR_LANES-1).length;
-          barsHtml += overflowCount
-            ? `<div class="range-bar range-overflow">+${overflowCount}件</div>`
-            : `<div class="range-bar range-empty"></div>`;
-          continue;
-        }
+      for(let lane=0; lane<maxLane; lane++){
         const it = activeToday.find(x => laneMap[x.id]===lane);
         if(it){
           const isStart = key===it.dateStart;
@@ -774,10 +750,9 @@ function render(){
     // title length), which means they don't naturally push the row taller. Add
     // extra bottom padding - the same amount for every cell in this row - so the
     // grid row actually grows to leave room and normal-flow text never collides
-    // with the reserved bar area. Height is based on the capped lane count, not
-    // the raw count, so it never grows past MAX_BAR_LANES worth of bars.
+    // with the reserved bar area.
     if(maxLane > 0){
-      div.style.paddingBottom = (6 + visibleLanes * 16) + "px";
+      div.style.paddingBottom = (6 + maxLane * 16) + "px";
     }
     // Range bars (物販期間・チケット受付期間等) are drawn separately as bars, but the
     // user should also be able to find them by clicking into the day's list panel -
