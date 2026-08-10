@@ -445,6 +445,14 @@
     .day.today .num{width:17px;height:17px;font-size:.66rem;}
     .weekdays div{font-size:.62rem;padding:8px 0;}
     .range-bar{height:13px;line-height:13px;font-size:.54rem;}
+    /* .range-bars bleeds into .day's own padding to reach the cell edges (see the
+       base rule above) - the bleed amount must match .day's padding at this
+       breakpoint (6px here vs 8px on desktop), otherwise it overshoots past the
+       cell's border and overlaps the neighboring day's bar. */
+    .range-bars{margin-left:-6px;margin-right:-6px;}
+    .range-bar.range-start{margin-left:4px;}
+    .range-bar.range-end{margin-right:4px;}
+    .range-bar.range-start.range-end{margin:0 4px;}
     .month-label{font-size:1.05rem;min-width:0;}
     .legend{font-size:.68rem;padding:12px 14px;}
     .legend-row{gap:12px;}
