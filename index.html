@@ -526,6 +526,9 @@ const DATA_URL = "data/assaultlily_events.json";
 let DATA = null;
 let current = new Date();
 let activeTypes = new Set();
+// Set true for a moment after a swipe gesture fires, so the touchend's
+// resulting synthetic click doesn't also open a day panel underneath the finger.
+let suppressNextClick = false;
 const TYPE_LABELS = {
   stage: "舞台",
   event: "イベント",
@@ -774,7 +777,10 @@ function render(){
       rangeEnd: it.dateEnd
     })));
     if(panelItems.length){
-      div.addEventListener("click", ()=>openDayPanel(key, panelItems));
+      div.addEventListener("click", ()=>{
+        if(suppressNextClick) return;
+        openDayPanel(key, panelItems);
+      });
     }
     container.appendChild(div);
   });
@@ -924,6 +930,40 @@ document.getElementById("todayBtn").addEventListener("click", ()=>{
   render();
   document.querySelector(".calendar").scrollIntoView({behavior:"smooth", block:"center"});
 });
+
+// Swipe left/right on the calendar grid (mobile) to move between months, same
+// as tapping the prev/next arrows. Only a mostly-horizontal drag counts as a
+// swipe, so vertical scrolling of the page isn't hijacked.
+(function(){
+  const calendarEl = document.querySelector(".calendar");
+  const SWIPE_MIN_DISTANCE = 45;
+  const SWIPE_MAX_DURATION = 800;
+  let startX = 0, startY = 0, startTime = 0, tracking = false;
+
+  calendarEl.addEventListener("touchstart", (e)=>{
+    if(e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    startTime = Date.now();
+    tracking = true;
+  }, {passive:true});
+
+  calendarEl.addEventListener("touchend", (e)=>{
+    if(!tracking) return;
+    tracking = false;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - startX;
+    const dy = touch.clientY - startY;
+    const dt = Date.now() - startTime;
+    if(dt > SWIPE_MAX_DURATION) return;
+    if(Math.abs(dx) < SWIPE_MIN_DISTANCE) return;
+    if(Math.abs(dx) < Math.abs(dy) * 1.5) return; // too vertical - let it scroll instead
+    suppressNextClick = true;
+    setTimeout(()=>{ suppressNextClick = false; }, 400);
+    current.setMonth(current.getMonth() + (dx < 0 ? 1 : -1));
+    render();
+  }, {passive:true});
+})();
 
 fetch(DATA_URL).then(r=>r.json()).then(data=>{
   DATA = data;
