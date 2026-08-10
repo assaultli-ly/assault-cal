@@ -214,9 +214,10 @@
   .weekdays div:first-child{color:#a4506c;}
   .weekdays div:last-child{color:#3f6f96;}
   .day{
+    display:flex;
+    flex-direction:column;
     min-height:132px;
     min-width:0;
-    overflow:hidden;
     border-right:1px solid var(--border-soft);
     border-bottom:1px solid var(--border-soft);
     padding:8px;
@@ -268,10 +269,16 @@
   }
 
   .range-bars{
-    position:absolute;
-    left:-6px;
-    right:-6px;
-    bottom:4px;
+    /* Normal-flow (not absolutely positioned) so the cell's own height always
+       grows to fit both the day-titles text AND however many bar lanes are
+       needed - margin-top:auto pushes this block to the bottom of the cell,
+       and since CSS Grid stretches every cell in a row to match the tallest
+       one, bars still line up across the row regardless of each day's title
+       line count. */
+    margin-top:auto;
+    margin-left:-6px;
+    margin-right:-6px;
+    margin-bottom:-4px;
     display:flex;
     flex-direction:column;
     gap:2px;
@@ -746,14 +753,6 @@ function render(){
       <div class="markers">${dotsHtml}</div>
       <div class="day-titles">${titlesHtml}</div>
       <div class="range-bars">${barsHtml}</div>`;
-    // Bars are positioned absolutely (so they align across the row regardless of
-    // title length), which means they don't naturally push the row taller. Add
-    // extra bottom padding - the same amount for every cell in this row - so the
-    // grid row actually grows to leave room and normal-flow text never collides
-    // with the reserved bar area.
-    if(maxLane > 0){
-      div.style.paddingBottom = (6 + maxLane * 16) + "px";
-    }
     // Range bars (物販期間・チケット受付期間等) are drawn separately as bars, but the
     // user should also be able to find them by clicking into the day's list panel -
     // so fold whichever bars are active on this day into the same panel items.
