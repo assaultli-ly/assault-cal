@@ -1,0 +1,9 @@
+[functions]
+  directory = "netlify/functions"
+
+# https://cal.assaultli.ly/api/today            -> 今日(JST)の予定をJSONで返す
+# https://cal.assaultli.ly/api/today?date=2026-08-09 -> 指定日の予定をJSONで返す
+[[redirects]]
+  from = "/api/today"
+  to = "/.netlify/functions/today"
+  status = 200
