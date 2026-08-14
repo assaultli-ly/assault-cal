@@ -200,6 +200,7 @@ exports.handler = async (event) => {
       price: null,
       url: null,
       note: null,
+      is_fallback: true,
       date_start: ev.date_start,
       date_end: ev.date_end || ev.date_start,
     });
@@ -218,6 +219,19 @@ exports.handler = async (event) => {
     source: "https://cal.assaultli.ly",
   };
 
+  const format = (qs.format || "json").toLowerCase();
+  if (format === "text" || format === "txt") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=300",
+      },
+      body: renderText(body),
+    };
+  }
+
   return {
     statusCode: 200,
     headers: {
@@ -228,3 +242,72 @@ exports.handler = async (event) => {
     body: JSON.stringify(body, null, 2),
   };
 };
+
+// MM/DD HH:MM 形式に整形（ISO日時が無ければ「未定」）。ruby版 fmt_datetime と同じ。
+function fmtDatetime(iso) {
+  if (!iso) return "未定";
+  return `${iso.slice(5, 7)}/${iso.slice(8, 10)} ${iso.slice(11, 16)}`;
+}
+
+// tools/assaultlily_today.rb (CLI版) と同じ見た目のプレーンテキストを組み立てる。
+function renderText(body) {
+  const lines = [];
+  lines.push(`=== ${body.date} (${body.weekday}) の予定 ===`);
+  lines.push("");
+
+  const hasAny =
+    body.ongoing.length || body.performances.length || body.tickets.length || body.mailorder.length;
+
+  if (!hasAny) {
+    lines.push("該当する予定はありません。");
+    return lines.join("\n") + "\n";
+  }
+
+  if (body.ongoing.length) {
+    lines.push("--- 開催中 ---");
+    for (const ev of body.ongoing) {
+      const period = ev.date_start === ev.date_end ? ev.date_start : `${ev.date_start} 〜 ${ev.date_end}`;
+      const venue = ev.venue ? ` @ ${ev.venue}` : "";
+      lines.push(`[${ev.type_label}] ${ev.title}${venue} (${period})`);
+    }
+    lines.push("");
+  }
+
+  if (body.performances.length) {
+    lines.push("--- 公演回 ---");
+    for (const p of body.performances) {
+      const time = p.time ? `${p.time} ` : "";
+      const note = p.note ? ` (${p.note})` : "";
+      lines.push(`${time}${p.title}${note}`);
+    }
+    lines.push("");
+  }
+
+  if (body.tickets.length) {
+    lines.push("--- チケット販売 ---");
+    for (const t of body.tickets) {
+      const method = t.method ? `[${t.method}] ` : "";
+      lines.push(`${t.label || "--:--"} ${method}${t.title} - ${t.phase}`);
+      if (t.sales_end) lines.push(`  〜 ${fmtDatetime(t.sales_end)}`);
+      if (t.url) lines.push(`  ${t.url}`);
+    }
+    lines.push("");
+  }
+
+  if (body.mailorder.length) {
+    lines.push("--- 物販/通販 ---");
+    for (const m of body.mailorder) {
+      if (m.is_fallback) {
+        const period = m.date_start === m.date_end ? m.date_start : `${m.date_start} 〜 ${m.date_end}`;
+        lines.push(`開催中 ${m.title} (${period})`);
+      } else {
+        lines.push(`${m.label || "--:--"} ${m.title} - ${m.phase}`);
+        if (m.sales_end) lines.push(`  〜 ${fmtDatetime(m.sales_end)}`);
+        if (m.url) lines.push(`  ${m.url}`);
+      }
+    }
+    lines.push("");
+  }
+
+  return lines.join("\n") + "\n";
+}
