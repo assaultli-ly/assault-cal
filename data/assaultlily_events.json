@@ -1,7 +1,7 @@
 {
   "meta": {
     "description": "アサルトリリィ関連 公式サイト巡回データ（自動収集）",
-    "last_updated": "2026-08-30T05:10:49+09:00",
+    "last_updated": "2026-08-31T00:58:39+09:00",
     "sources": [
       {
         "key": "assaultlily-pj",
@@ -1066,36 +1066,69 @@
       "type": "event",
       "title": "アサルトリリィ Last Bullet ストーリー振り返りイベント《神庭女子藝術高校編》",
       "series": "アサルトリリィ Last Bullet",
-      "source_site": "assaultlily-lb",
-      "source_url": "https://assaultlily.jp/news/info/10915/",
+      "source_site": "assaultlily-record",
+      "source_url": "https://assaultlily-record.com/posts/33980773-4dd9-4c98-a1a5-3cafc70a8c68",
       "detail_url": null,
-      "venue": null,
+      "venue": "秋葉原ハンドレッド2（東京）",
       "date_start": "2026-11-07",
       "date_end": "2026-11-07",
       "performances": [],
-      "cast": [],
-      "description": "ラスバレ放送局#127（2026-08-25公開）にて開催決定を告知。会場・出演者・チケット情報は続報待ち。",
-      "tickets": [],
-      "last_seen": "2026-08-30",
-      "status": "tbd"
+      "cast": [
+        "東城咲耶子(土岐紅巴役)",
+        "秋奈(桑田一乙役)",
+        "船戸ゆり絵(横田悠夏役)",
+        "高柳知葉(外崎杏花役)",
+        "尾花沢軒栄(アサルトリリィ原作)"
+      ],
+      "description": "両部MC: 東城咲耶子(土岐紅巴役)。1部ゲスト: 秋奈(桑田一乙役) and more。2部ゲスト: 船戸ゆり絵(横田悠夏役)、高柳知葉(外崎杏花役)。両部ゲスト: 尾花沢軒栄(アサルトリリィ原作)。出演者は変更になる場合あり。",
+      "tickets": [
+        {
+          "phase": "チケット販売",
+          "method": "先着",
+          "sales_start": "2026-10-03T12:00:00+09:00",
+          "sales_end": null,
+          "price": null,
+          "url": null,
+          "note": null
+        }
+      ],
+      "last_seen": "2026-08-31",
+      "status": "upcoming"
     },
     {
       "id": "lb-storyevent-yurigaoka-20261122",
       "type": "event",
       "title": "アサルトリリィ Last Bullet ストーリー振り返りイベント《百合ヶ丘女学院編》",
       "series": "アサルトリリィ Last Bullet",
-      "source_site": "assaultlily-lb",
-      "source_url": "https://assaultlily.jp/news/info/10915/",
+      "source_site": "assaultlily-record",
+      "source_url": "https://assaultlily-record.com/posts/d4a14027-da4d-4374-bd5c-b9297f0e8197",
       "detail_url": null,
-      "venue": null,
+      "venue": "秋葉原ハンドレッド2（東京）",
       "date_start": "2026-11-22",
       "date_end": "2026-11-22",
       "performances": [],
-      "cast": [],
-      "description": "ラスバレ放送局#127（2026-08-25公開）にて開催決定を告知。会場・出演者・チケット情報は続報待ち。",
-      "tickets": [],
-      "last_seen": "2026-08-30",
-      "status": "tbd"
+      "cast": [
+        "井澤美香子(楓・J・ヌーベル役)",
+        "田中那実(秦祀役)",
+        "七瀬彩夏(伊東閑役)",
+        "紡木吏佐(安藤鶴紗役)",
+        "星守紗凪(郭神琳役)",
+        "尾花沢軒栄(アサルトリリィ原作)"
+      ],
+      "description": "両部MC: 井澤美香子(楓・J・ヌーベル役)。1部ゲスト: 田中那実(秦祀役)、七瀬彩夏(伊東閑役)。2部ゲスト: 紡木吏佐(安藤鶴紗役)、星守紗凪(郭神琳役)。両部ゲスト: 尾花沢軒栄(アサルトリリィ原作)。出演者は変更になる場合あり。",
+      "tickets": [
+        {
+          "phase": "チケット販売",
+          "method": "先着",
+          "sales_start": "2026-10-03T12:00:00+09:00",
+          "sales_end": null,
+          "price": null,
+          "url": null,
+          "note": null
+        }
+      ],
+      "last_seen": "2026-08-31",
+      "status": "upcoming"
     },
     {
       "id": "lb-mainstory-zankou-20260831",
